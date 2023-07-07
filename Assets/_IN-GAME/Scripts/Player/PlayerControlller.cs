@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControlller : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Adjust the movement speed as needed
+    [SerializeField] private float moveSpeed = 5f; // Adjust the movement speed as needed
+    [SerializeField] private FixedJoystick joystick;
 
     private Rigidbody2D rb;
 
@@ -17,8 +18,8 @@ public class PlayerControlller : MonoBehaviour
     private void Update()
     {
         // Input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement = joystick.Direction.normalized;
+        
     }
 
     private void FixedUpdate()
