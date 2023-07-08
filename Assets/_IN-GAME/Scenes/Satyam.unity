@@ -25064,40 +25064,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a1e730c7debf14ead5a3dcf40852f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 0
-  damage: 0
+  playerControlller: {fileID: 1474000574}
   abilities:
-  - name: RotatingBlade
-    AbilityType: 0
-    description: 
+  - AbilityType: 0
     cooldownTime: 0
-    lastUsedTime: 0
-    level: 1
-  - name: 
-    AbilityType: 0
-    description: 
+    Currentlevel: 0
+    LevelsGameObject:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  - AbilityType: 1
     cooldownTime: 0
-    lastUsedTime: 0
-    level: 0
-  - name: 
-    AbilityType: 0
-    description: 
+    Currentlevel: 0
+    LevelsGameObject: []
+  - AbilityType: 0
     cooldownTime: 0
-    lastUsedTime: 0
-    level: 0
-  - name: 
-    AbilityType: 0
-    description: 
+    Currentlevel: 0
+    LevelsGameObject: []
+  - AbilityType: 0
     cooldownTime: 0
-    lastUsedTime: 0
-    level: 0
-  - name: 
-    AbilityType: 0
-    description: 
+    Currentlevel: 0
+    LevelsGameObject: []
+  - AbilityType: 0
     cooldownTime: 0
-    lastUsedTime: 0
-    level: 0
+    Currentlevel: 0
+    LevelsGameObject: []
 --- !u!1001 &1319203598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25293,6 +25284,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1474000574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1141471883, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc36aa73643e5354ea7bd8d25b650747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1475986501
