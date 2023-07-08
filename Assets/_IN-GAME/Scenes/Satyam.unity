@@ -12239,6 +12239,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 249727444, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1141471883, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: joystick
       value: 
@@ -12295,6 +12299,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1465184848}
+    - target: {fileID: 6306989309242747233, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
 --- !u!1 &584657489
@@ -24676,6 +24684,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &783232764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1997383631, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &801604930
 GameObject:
   m_ObjectHideFlags: 0
@@ -24958,6 +24971,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.71}
   m_EdgeRadius: 0
+--- !u!1 &1019544711 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 249727444, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1087734036
 GameObject:
   m_ObjectHideFlags: 0
@@ -25020,6 +25038,11 @@ PolygonCollider2D:
       - {x: -8.884373, y: -5.1693273}
       - {x: 14.007339, y: -5.2202463}
       - {x: 13.8708515, y: 1.0913134}
+--- !u!1 &1247097975 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 994309016, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306425895
 GameObject:
   m_ObjectHideFlags: 0
@@ -25067,26 +25090,24 @@ MonoBehaviour:
   playerControlller: {fileID: 1474000574}
   abilities:
   - AbilityType: 0
-    cooldownTime: 0
     Currentlevel: 0
     LevelsGameObject:
-    - {fileID: 0}
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 1019544711}
+    - {fileID: 1247097975}
+    - {fileID: 783232764}
+  - AbilityType: 3
+    Currentlevel: 0
+    LevelsGameObject:
+    - {fileID: 6306989309242747233}
+    - {fileID: 1049859901323366791}
+    - {fileID: 1674758445902776241}
   - AbilityType: 1
-    cooldownTime: 0
     Currentlevel: 0
     LevelsGameObject: []
   - AbilityType: 0
-    cooldownTime: 0
     Currentlevel: 0
     LevelsGameObject: []
   - AbilityType: 0
-    cooldownTime: 0
-    Currentlevel: 0
-    LevelsGameObject: []
-  - AbilityType: 0
-    cooldownTime: 0
     Currentlevel: 0
     LevelsGameObject: []
 --- !u!1001 &1319203598
@@ -25621,3 +25642,18 @@ Transform:
   m_Father: {fileID: 898021307}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1049859901323366791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1049859901323366791, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1674758445902776241 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1674758445902776241, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6306989309242747233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6306989309242747233, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}

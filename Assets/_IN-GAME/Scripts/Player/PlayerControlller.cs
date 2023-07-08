@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerControlller : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Adjust the movement speed as needed
+    public float moveSpeed = 5f; // Adjust the movement speed as needed
     [SerializeField] private DynamicJoystick joystick;
 
     private Rigidbody2D rb;
