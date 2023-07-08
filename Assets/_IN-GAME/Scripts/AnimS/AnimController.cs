@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimController : MonoBehaviour
 {
-    [SerializeField] private FixedJoystick joystick;
+    [SerializeField] private DynamicJoystick joystick;
 
     private Vector2 movement;
     private Animator PlayerAnim;
