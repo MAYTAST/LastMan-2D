@@ -436,8 +436,8 @@ MonoBehaviour:
   enemyPrefab: {fileID: 115483703}
   enemyParent: {fileID: 2060954177}
   spawnInterval: 1
-  minimumSpawnDistance: 5.53
-  maximumSpawnDistance: 8.05
+  minimumSpawnDistance: 4.5
+  maximumSpawnDistance: 6.15
 --- !u!4 &2060954177
 Transform:
   m_ObjectHideFlags: 0

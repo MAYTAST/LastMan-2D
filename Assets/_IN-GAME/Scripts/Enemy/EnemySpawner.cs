@@ -65,13 +65,6 @@ public class EnemySpawner : MonoBehaviour
     {
         Vector3 randomOffset = RandomMethod1();
 
-
-
-
-
-
-
-      
         Vector3 spawnPos = playerTransform.position + randomOffset;
      
         return spawnPos;
@@ -80,16 +73,26 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 RandomMethod1()
     {
-        float xRange1 = Random.Range(-minimumSpawnDistance, minimumSpawnDistance);
-        float xRange2 = Random.Range(-maximumSpawnDistance, maximumSpawnDistance);
-        float x = Random.Range(xRange1, xRange2);
+        Vector3 randomOffset = Vector3.zero;
+        float distance = 0f;
+        do
+        {
+
+            float xRange1 = Random.Range(-minimumSpawnDistance, minimumSpawnDistance);
+            float xRange2 = Random.Range(-maximumSpawnDistance, maximumSpawnDistance);
+            float x = Random.Range(xRange1, xRange2);
+            randomOffset.x = x;
 
 
-        float yRange1 = Random.Range(-minimumSpawnDistance, minimumSpawnDistance);
-        float yRange2 = Random.Range(-maximumSpawnDistance, maximumSpawnDistance);
-        float y = Random.Range(yRange1, yRange2);
+            float yRange1 = Random.Range(-minimumSpawnDistance, minimumSpawnDistance);
+            float yRange2 = Random.Range(-maximumSpawnDistance, maximumSpawnDistance);
+            float y = Random.Range(yRange1, yRange2);
+            randomOffset.y = y;
 
-        return new Vector3 (x,y,0);
+            distance = Vector2.Distance(randomOffset,playerTransform.position);
+
+        } while (distance < minimumSpawnDistance);
+        return randomOffset;
 
     }
 
