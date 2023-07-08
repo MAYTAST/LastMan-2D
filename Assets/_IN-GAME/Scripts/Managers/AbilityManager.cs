@@ -22,30 +22,16 @@ public class AbilityManager : MonoBehaviour
     public List<Ability> abilities;
     public float SpeedUpgradeValue=0.5f;
     private Ability CurrentAblity;
-    private float PlayerSpeed;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            //  ActivateAbility(AbilityType.RotatingBlade);
-            // ActivateAbility(AbilityType.ForceField);
-            ActivateAbility(AbilityType.SpeedBoost);
+             ActivateAbility(AbilityType.RotatingBlade);
+             ActivateAbility(AbilityType.ForceField);
+             ActivateAbility(AbilityType.Bomb);
+             ActivateAbility(AbilityType.SpeedBoost);
         }
     
-    }
-    private void Start()
-    {
-        PlayerSpeed = playerControlller.moveSpeed;
-    }
-    public void  AblitySelected(AbilityType abilityType,int AbilityCurrentLevel)
-    {
-        foreach (Ability item in abilities)
-        {
-            if (abilityType==item.AbilityType)
-            {
-
-            }
-        }
     }
     public void ActivateAbility(AbilityType _abilityType)
     {
