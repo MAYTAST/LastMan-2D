@@ -393,6 +393,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1385622883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2670835983318889005, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+  m_PrefabInstance: {fileID: 6569971001806345777}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2060954175
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +507,7 @@ PrefabInstance:
     - target: {fileID: 4756345824126430273, guid: e2977783640751b46881efc9161eb496, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1385622883}
     - target: {fileID: 4756345824126430285, guid: e2977783640751b46881efc9161eb496, type: 3}
       propertyPath: m_Name
       value: Player
@@ -510,6 +521,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2670835983318889004, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835983318889004, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835983318889004, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 991.0801
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835983318889004, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 2092.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835983318889004, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -495.54004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835984428782193, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835984428782193, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835984428782193, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835984428782193, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 238.03
+      objectReference: {fileID: 0}
     - target: {fileID: 6569971001551952150, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_Name
       value: Canvas
