@@ -5413,7 +5413,7 @@ GameObject:
   - component: {fileID: 1474000579}
   m_Layer: 0
   m_Name: Astronaut
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5581,7 +5581,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.42}
+  m_Size: {x: 1, y: 1.4}
   m_EdgeRadius: 0
 --- !u!1 &1674758445902776241
 GameObject:
