@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
-    public float angle = 45f;
-    public Vector3 axis = Vector3.forward;
+    public float rotationSpeed = 250f;
 
     private void Update()
     {
-        // Get the center point of the parent GameObject
-        Vector3 center = transform.position;
+        // Get the current rotation of the object
+        Quaternion currentRotation = transform.rotation;
 
-        transform.Rotate(Vector3.forward * Time.deltaTime);
+        // Calculate the desired rotation amount
+        float rotationAmount = rotationSpeed * Time.deltaTime;
+
+        // Create a new rotation with the desired Z-axis rotation
+        Quaternion newRotation = Quaternion.Euler(0f, 0f, currentRotation.eulerAngles.z + rotationAmount);
+
+        // Apply the new rotation to the object
+        transform.rotation = newRotation;
     }
 }
