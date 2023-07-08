@@ -12082,6 +12082,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1078346314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2670835983318889005, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+  m_PrefabInstance: {fileID: 1399382059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba0d0e7a039f526499c356a3c5cd6d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1115887771
 GameObject:
   m_ObjectHideFlags: 0
@@ -12579,17 +12590,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1900516029 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8326015241376890006, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-  m_PrefabInstance: {fileID: 1399382059}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2007062555
 GameObject:
   m_ObjectHideFlags: 0
@@ -12873,7 +12873,7 @@ PrefabInstance:
     - target: {fileID: 1141471883, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 1900516029}
+      objectReference: {fileID: 1078346314}
     - target: {fileID: 1484835706025841427, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -12925,6 +12925,6 @@ PrefabInstance:
     - target: {fileID: 1484835706176904079, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: joystick
       value: 
-      objectReference: {fileID: 1900516029}
+      objectReference: {fileID: 1078346314}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
