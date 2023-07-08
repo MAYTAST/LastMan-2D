@@ -4,11 +4,15 @@ using UnityEngine;
 public class PlayerControlller : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f; // Adjust the movement speed as needed
-    [SerializeField] private FixedJoystick joystick;
+    [SerializeField] private DynamicJoystick joystick;
 
     private Rigidbody2D rb;
 
     private Vector2 movement;
+
+    //Public properties 
+    public bool IsMoving => movement == Vector2.zero;
+
 
  
     private void Start()
