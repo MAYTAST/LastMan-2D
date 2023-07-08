@@ -25056,7 +25056,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_Follow: {fileID: 1474000578}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 8.04
@@ -25130,6 +25130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc36aa73643e5354ea7bd8d25b650747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1474000578 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1484835706025841427, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 564866720}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1475986501
 GameObject:
   m_ObjectHideFlags: 0
