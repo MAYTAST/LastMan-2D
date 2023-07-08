@@ -25022,6 +25022,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2670835983318889005, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: deadZone
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670835984428782193, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 450
+      objectReference: {fileID: 0}
     - target: {fileID: 3252877517159761576, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_IsActive
       value: 0
