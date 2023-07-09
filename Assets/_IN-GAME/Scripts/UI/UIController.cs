@@ -18,6 +18,7 @@ public class UIController : MonoBehaviour
     [Header("GamePanel")]
     [SerializeField] private TMPro.TMP_Text killsText;
     [SerializeField] private TMPro.TMP_Text TimeText;
+    [SerializeField] private TMPro.TMP_Text LevelText;
 
     [Header("Score")]
     [SerializeField] private TMPro.TMP_Text KillCountScoreText;
