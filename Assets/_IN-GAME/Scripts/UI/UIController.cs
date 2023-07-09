@@ -56,6 +56,18 @@ public class UIController : MonoBehaviour
         StartCoroutine("UpdateTimer");
     }
 
+    public void OpenAbilityPanel()
+    {
+        Time.timeScale = 0.0f;
+        abilityPanel.SetActive(true);
+    }
+
+    public void CloseAbilityPanel()
+    {
+        Time.timeScale = 1.0f;
+        abilityPanel.SetActive(false);
+    }
+
     public void GameOver()
     {
         CloseAllPanels();

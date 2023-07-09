@@ -34,4 +34,9 @@ public class card : MonoBehaviour
             stars[i].SetActive(true);
         }
     }
+
+    public void Click()
+    {
+        AbilityManager.instance.CardClicked(this);
+    }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 using DG.Tweening;
 public enum AbilityType
 {
-    RotatingBlade,
+    ForceField,
     SpeedBoost,
+    RotatingBlade,
     Bomb,
-    ForceField
 }
 [System.Serializable]
 public class Ability
@@ -18,18 +18,29 @@ public class Ability
 }
 public class AbilityManager : MonoBehaviour
 {
+    public static AbilityManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public PlayerControlller playerControlller;
     public GameObject BombPrefab;
     public List<Ability> abilities;
     public float SpeedUpgradeValue=0.5f;
     public card cards;
-    public int[] abilityLevels;
     public List<card> cardList;
+    public int abilityCount = 0;
     private Ability CurrentAblity;
     private Transform[] AllChilds_RotatingBlade;
     private Transform[] AllChilds_BombAblity;
 
 
+    public void Start()
+    {
+        CardSpwaner();
+    }
     public void CardSpwaner()
     {
         for(int i=0; i < cardList.Count; i++)
@@ -38,9 +49,9 @@ public class AbilityManager : MonoBehaviour
         }
         cardList.Clear();
         List<int> numbers = new List<int> { 0, 1, 2, 3};
-        for(int i =0;i<abilityLevels.Length;i++)
+        for(int i =0;i<abilities.Count;i++)
         {
-            if (abilityLevels[i] >= 2)
+            if (abilities[i].Currentlevel >= 2)
             {
                 numbers.Remove(i);
             }
@@ -55,24 +66,31 @@ public class AbilityManager : MonoBehaviour
 
         for(int i=0;i< 3 && i<randomOrder.Count;i++)
         {
-            if (abilityLevels[randomOrder[i]] < 2)
+            if (abilities[randomOrder[i]].Currentlevel < 2)
             {
                 GameObject newCard =  Instantiate(cards.gameObject, cards.transform.parent);
-                newCard.GetComponent<card>().SetCardInfo(randomOrder[i], abilityLevels[randomOrder[i]]);
+                newCard.GetComponent<card>().SetCardInfo(randomOrder[i], abilities[randomOrder[i]].Currentlevel);
                 newCard.SetActive(true);
                 cardList.Add(newCard.GetComponent<card>());
             }
         }
     }
+
+    public void CardClicked(card card)
+    {
+        Debug.Log((AbilityType)card.id);
+        ActivateAbility((AbilityType)card.id);
+        skills.instance.Setability(card.id);
+        CardSpwaner();
+        UIController.instance.CloseAbilityPanel();
+        abilityCount++;
+    }
    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) && abilityCount < 8)
         {
-             ActivateAbility(AbilityType.RotatingBlade);
-             ActivateAbility(AbilityType.ForceField);
-             ActivateAbility(AbilityType.Bomb);
-             ActivateAbility(AbilityType.SpeedBoost);
+             UIController.instance.OpenAbilityPanel();
         }
     
     }
