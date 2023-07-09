@@ -43,7 +43,7 @@ public class EnemyEntity : MonoBehaviour
     {
         CurrentHealth -= damageAmt;
         OnTakeDamage?.Invoke(currentHealth);
-
+        
         if (shoulDie)
         {
             Die();

@@ -13,13 +13,14 @@ GameObject:
   - component: {fileID: 9003006803928496257}
   - component: {fileID: 9003006803928496270}
   - component: {fileID: 9003006803928496269}
+  - component: {fileID: 1326527131}
   m_Layer: 0
   m_Name: BeardWalaEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9003006803928496271
 Transform:
   m_ObjectHideFlags: 0
@@ -120,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  damageAmount: 10
+  damageDuration: 1
   circleRadius: 0.4
   playerLayer:
     serializedVersion: 2
@@ -150,3 +153,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.6}
   m_EdgeRadius: 0
+--- !u!114 &1326527131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003006803928496258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0847a9e11b98b44994ebdc5693e4e9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  startHealth: 100

@@ -4,6 +4,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] float damageAmount = 10f;
+    public float damageDuration = 1.0f; // The duration over which the damage is applied
+    private float damageTimer = 0.0f; // Timer to track the damage duration
+    private bool isDamaging = false;
+
     private float currentSpeed;
     private Transform playerTransform;
     private SpriteRenderer spriteRenderer;
@@ -14,11 +19,16 @@ public class Enemy : MonoBehaviour
     private bool isPlayerInRange = false;
 
     private Vector3 direction;
+
+  
+    private PlayerEntity PlayerEnity;
     private void Start()
     {
         currentSpeed = moveSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        
+        PlayerEnity = playerTransform.GetComponent<PlayerEntity>();
     }
     private void Awake()
     {
@@ -31,8 +41,10 @@ public class Enemy : MonoBehaviour
         MoveTowardsPlayer();
         Flip();
         DetectPlayerAndAttack();
+        DoDamage();
+       
     }
-
+  
     private void Flip()
     {
         if (direction.x < 0f)
@@ -55,18 +67,30 @@ public class Enemy : MonoBehaviour
             // Player entered the attack range
             isPlayerInRange = true;
             currentSpeed = 0;
+           
             // Play attack animation
             animator.SetBool("CanAttack", true);
+          
+
+     
+
+          
         }
         else if (!isPlayerDetected && isPlayerInRange)
         {
             // Player exited the attack range
             isPlayerInRange = false;
             currentSpeed = moveSpeed;
-            // Reset the attack animation
+         
+           
             animator.SetBool("CanAttack", false);
+            isDamaging = false;
+            damageTimer = 0.0f;
+
         }
     }
+
+
     private void MoveTowardsPlayer()
     {
         direction = playerTransform.position - transform.position;
@@ -82,7 +106,44 @@ public class Enemy : MonoBehaviour
        
 
     }
+    private void DoDamage()
+    {
+        if (isPlayerInRange)
+        {
+            if (!isDamaging)
+            {
+                // Start applying damage
+                damageTimer = 0.0f;
+                isDamaging = true;
+            }
+            else
+            {
+                // Continue applying damage gradually
+                damageTimer += Time.deltaTime;
+                if (damageTimer >= damageDuration)
+                {
+                    // Damage duration has passed, stop applying damagez
+                    isDamaging = false;
+                    damageTimer = 0.0f;
+                }
+                else
+                {
+                    // Apply a fraction of the total damage over time
+                    float damageFraction = Time.deltaTime / damageDuration;
+                    float damageAmountPerFrame = damageAmount * damageFraction;
+                    PlayerEnity.TakeDamage(damageAmountPerFrame);
+                }
+            }
+        }
+        else
+        {
+            // Player is out of range, stop applying damage
+            isDamaging = false;
+            damageTimer = 0.0f;
+        }
 
+        Debug.Log(playerTransform.GetComponent<PlayerEntity>().CurrentHealth);
+    }
     private void OnDrawGizmosSelected()
     {
         // Visualize the overlapping circle in the editor

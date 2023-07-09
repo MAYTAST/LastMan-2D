@@ -33,7 +33,7 @@ public class PlayerEntity : MonoBehaviour
 
     private void Awake()
     {
-        
+        currentHealth = startHealth;
     }
 
 
