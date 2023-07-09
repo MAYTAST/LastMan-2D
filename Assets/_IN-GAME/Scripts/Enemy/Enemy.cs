@@ -21,8 +21,8 @@ public class Enemy : MonoBehaviour
     private bool isPlayerInRange = false;
     private Vector3 direction;
     private PlayerEntity PlayerEnity;
-
-
+    private EnemyEntity enemyEntity;
+    public static float EnemyDeathCount = 0;
     private void Start()
     {
         currentSpeed = moveSpeed;
@@ -45,7 +45,12 @@ public class Enemy : MonoBehaviour
         DoDamage();
        
     }
-  
+
+    private void OnDisable()
+    {
+        EnemyDeathCount++;
+        Debug.Log(EnemyDeathCount);
+    }
     private void Flip()
     {
         if (direction.x < 0f)
@@ -152,5 +157,21 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, circleRadius);
     }
 
-  
+    /*    private void OnEnable()
+      {
+          enemyEntity.OnDie += OnEnemyDie;
+      }
+
+      private void OnDisable()
+      {
+          enemyEntity.OnDie -= OnEnemyDie;
+      }
+  */
+
+
+    /*  private void OnEnemyDie()
+      {
+
+          EnemyDeathCount++;
+      }*/
 }

@@ -7,7 +7,7 @@ public class EnemyEntity : MonoBehaviour
 
     [Tooltip("Health at which this object should have in the start")]
     [SerializeField] private float startHealth = 100f;
-
+    [SerializeField] private GameObject floatingText;
     private float currentHealth;
 
 
@@ -37,13 +37,22 @@ public class EnemyEntity : MonoBehaviour
         startHealth = Mathf.Clamp(startHealth, 0, maxHealth);
         CurrentHealth = startHealth;
     }
+    private void ShowFloatingText(float damageamount)
+    {
+        //can use  object pooling 
+        var go = Instantiate(floatingText, transform.position, Quaternion.identity, transform.parent);
+        go.GetComponent<TextMesh>().text = damageamount.ToString();
 
 
+    }
 
+
+ 
     public void TakeDamage(float damageAmt)
     {
         CurrentHealth -= damageAmt;
         OnTakeDamage?.Invoke(currentHealth);
+        ShowFloatingText(damageAmt);
         Debug.Log("Current health of enemy is: " + CurrentHealth);
         if (shoulDie)
         {

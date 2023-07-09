@@ -250,7 +250,7 @@ Transform:
   m_Children:
   - {fileID: 677486186}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &677486185
 GameObject:
@@ -11915,7 +11915,7 @@ Transform:
   - {fileID: 2056544101}
   - {fileID: 1770722532}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157510011
 GameObject:
@@ -12082,7 +12082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6569971001551952154, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6569971001551952154, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_AnchorMax.x
@@ -12254,6 +12254,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1801755716 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1484835706025841438, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 1484835706176904073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1801755724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1484835706025841427, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 1484835706176904073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1801755725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1801755716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f40bb681138c2e4ca9c70b61bdd1ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 2
+  attackPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletParent: {fileID: 1801755724}
+  detectRange: 20
+  detectAngle: 30
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &2007062555
 GameObject:
   m_ObjectHideFlags: 0
@@ -12433,6 +12464,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1078346314}
+    - target: {fileID: 1474000579, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1484835706025841427, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -12494,6 +12529,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1768072236, guid: dcede69477fbf7545b3d0a3056b7379a, type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
     - target: {fileID: 3352032617573628402, guid: dcede69477fbf7545b3d0a3056b7379a, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -12553,7 +12592,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5042687607027867692, guid: 76b1725f1587b9147962c7b8719fb354, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5042687607027867692, guid: 76b1725f1587b9147962c7b8719fb354, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12608,6 +12647,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 412961758, guid: 9ebe3586ff53c5942ae415dee39cae91, type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
     - target: {fileID: 6580779691044412584, guid: 9ebe3586ff53c5942ae415dee39cae91, type: 3}
       propertyPath: m_Name
       value: PinkNinja
@@ -12665,6 +12708,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1027745865, guid: 97fe3bee4a48c7749af1c1492ec4a566, type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
     - target: {fileID: 6944970131306333433, guid: 97fe3bee4a48c7749af1c1492ec4a566, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -12722,6 +12769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1326527131, guid: 6a67a017296cd404999a55bff433799d, type: 3}
+      propertyPath: floatingText
+      value: 
+      objectReference: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
     - target: {fileID: 9003006803928496258, guid: 6a67a017296cd404999a55bff433799d, type: 3}
       propertyPath: m_Name
       value: BeardWalaEnemy
