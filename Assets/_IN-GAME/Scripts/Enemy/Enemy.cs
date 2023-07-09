@@ -5,23 +5,24 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] float damageAmount = 10f;
+
+    public float circleRadius = 2f; // Adjust the radius of the overlapping circle
+    public LayerMask playerLayer;
     public float damageDuration = 1.0f; // The duration over which the damage is applied
+
+
+
     private float damageTimer = 0.0f; // Timer to track the damage duration
     private bool isDamaging = false;
-
     private float currentSpeed;
     private Transform playerTransform;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-
-    public float circleRadius = 2f; // Adjust the radius of the overlapping circle
-    public LayerMask playerLayer;
     private bool isPlayerInRange = false;
-
     private Vector3 direction;
-
-  
     private PlayerEntity PlayerEnity;
+
+
     private void Start()
     {
         currentSpeed = moveSpeed;
