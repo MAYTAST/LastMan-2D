@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: db1ffeeae0c0b664c96813c8a3c7335f
+guid: 014a3baa5fc79ed41aa5d54ffc6f1ddc
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: card_0
+      name: SKILLS_0
       rect:
         serializedVersion: 2
-        x: 391
-        y: 17
-        width: 1262
-        height: 2007
+        x: 41
+        y: 39
+        width: 1017
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +142,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0896a4c433bfb34a83f70677aa20bcf
-      internalID: -2147063165
+      spriteID: eb2ea5e0f12b6e94cb8637082ada158a
+      internalID: -2067413081
       vertices: []
       indices: 
       edges: []
@@ -152,14 +152,14 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      card_0: -2147063165
+      SKILLS_0: -2067413081
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

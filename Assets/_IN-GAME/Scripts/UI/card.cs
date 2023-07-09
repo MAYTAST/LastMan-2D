@@ -10,6 +10,7 @@ public class card : MonoBehaviour
     [SerializeField] private Sprite[] icons;
     [SerializeField] private string[] descriptions;
 
+    public int id;
     public TMP_Text title;
     public Image icon;
     public TMP_Text description;
@@ -18,6 +19,7 @@ public class card : MonoBehaviour
 
     public void SetCardInfo(int i, int level)
     {
+        id = i;
         this.level = level;
         title.text = titles[i];
         icon.sprite = icons[i];
@@ -27,7 +29,7 @@ public class card : MonoBehaviour
 
     public void setStars()
     {
-        for(int i =0; i < level; i++)
+        for(int i =0; i <= level; i++)
         {
             stars[i].SetActive(true);
         }

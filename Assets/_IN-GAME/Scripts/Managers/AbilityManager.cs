@@ -22,9 +22,48 @@ public class AbilityManager : MonoBehaviour
     public GameObject BombPrefab;
     public List<Ability> abilities;
     public float SpeedUpgradeValue=0.5f;
+    public card cards;
+    public int[] abilityLevels;
+    public List<card> cardList;
     private Ability CurrentAblity;
     private Transform[] AllChilds_RotatingBlade;
     private Transform[] AllChilds_BombAblity;
+
+
+    public void CardSpwaner()
+    {
+        for(int i=0; i < cardList.Count; i++)
+        {
+            Destroy(cardList[i].gameObject);
+        }
+        cardList.Clear();
+        List<int> numbers = new List<int> { 0, 1, 2, 3};
+        for(int i =0;i<abilityLevels.Length;i++)
+        {
+            if (abilityLevels[i] >= 2)
+            {
+                numbers.Remove(i);
+            }
+        }
+        List<int> randomOrder = new List<int>();
+        while (numbers.Count > 0)
+        {
+            int index = Random.Range(0, numbers.Count);
+            randomOrder.Add(numbers[index]);
+            numbers.RemoveAt(index);
+        }
+
+        for(int i=0;i< 3 && i<randomOrder.Count;i++)
+        {
+            if (abilityLevels[randomOrder[i]] < 2)
+            {
+                GameObject newCard =  Instantiate(cards.gameObject, cards.transform.parent);
+                newCard.GetComponent<card>().SetCardInfo(randomOrder[i], abilityLevels[randomOrder[i]]);
+                newCard.SetActive(true);
+                cardList.Add(newCard.GetComponent<card>());
+            }
+        }
+    }
    
     private void Update()
     {
