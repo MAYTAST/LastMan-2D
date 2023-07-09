@@ -140,7 +140,7 @@ public class AbilityManager : MonoBehaviour
         yield return new WaitForSeconds(4f);
         for (int i = 1; i < AllChilds_RotatingBlade.Length; i++)
         {
-            AllChilds_RotatingBlade[i].DOScale(0f, 1.5f);
+            AllChilds_RotatingBlade[i].DOScale(0f, 1.5f).SetEase(Ease.OutBack);
         }
         yield return new WaitForSeconds(4f);
         StartCoroutine(nameof(RotatingBlade));

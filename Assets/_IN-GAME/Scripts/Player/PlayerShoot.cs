@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour
 {
+    //TODO:
+    // 1. Randomize spawn time.
+    // 2. Keep enemy count and add maximum number of enemies that can be present at a time.
+
+
     [SerializeField] private float attackRate = 2f;
 
     [Header("References")]
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletParent;
+    private ObjectPooler bulletPooler;
 
 
     [Header("Enemy detcction")]
@@ -26,6 +32,13 @@ public class PlayerShoot : MonoBehaviour
         {
 
         }
+    }
+
+
+    private void Start()
+    {
+        bulletPooler = ObjectPooler.Instance;
+        bulletPooler.InitializePool(bulletPrefab,20,bulletParent);
     }
     private void Update()
     {

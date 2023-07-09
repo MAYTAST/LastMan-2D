@@ -46,3 +46,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Blades
+    uniqueID: 2747176119
+    locked: 0

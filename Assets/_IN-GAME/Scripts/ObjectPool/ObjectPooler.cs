@@ -4,6 +4,10 @@ using UnityEngine;
 public class ObjectPooler : Singleton<ObjectPooler>
 {
 
+    //TODO:
+    //1. Add delegate to the ReturnToPool method.
+   
+
     private Dictionary<string, List<GameObject>> pooledObjects;
     private Dictionary<string, Transform> poolParents;
 
@@ -42,9 +46,9 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// Should be called in start method of the script that is using it
     /// </summary>
     /// <param name="prefab">prefab that need to be initialized</param>
-    /// <param name="size">size of the pool</param>
-    /// <param name="parent">parent of the pooled objects</param>
-    public void InitializePool(GameObject prefab, int size, Transform parent)
+    /// <param name="size">size of the pool(default size = 20)</param>
+    /// <param name="parent">parent of the pooled objects (by default is null)</param>
+    public void InitializePool(GameObject prefab, int size = 20, Transform parent = null)
     {
         string key = prefab.name;
 
@@ -56,7 +60,16 @@ public class ObjectPooler : Singleton<ObjectPooler>
 
         for (int i = 0; i < size; i++)
         {
-            GameObject obj = Instantiate(prefab, parent);
+            GameObject obj = null;
+
+            if (parent == null)
+            {
+                 obj = Instantiate(prefab);
+            }
+            else
+            {
+                 obj = Instantiate(prefab, parent);
+            }
             obj.SetActive(false);
             pooledObjects[key].Add(obj);
         }

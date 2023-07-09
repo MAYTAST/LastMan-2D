@@ -14,6 +14,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField,Range(1f,10f)] private float maximumSpawnDistance;
 
 
+    private ObjectPooler enemyPooler;
+
+
     private Vector3 lastEnemyPos;
     private Vector3 currentSpawnPos;
     private Quaternion spawnRotation;
@@ -29,6 +32,9 @@ public class EnemySpawner : MonoBehaviour
     }
     private void Start()
     {
+        enemyPooler = ObjectPooler.Instance;
+        enemyPooler.InitializePool(enemyPrefab, 50, enemyParent);
+
         StartCoroutine(SpawnEnemies());
     }
 
