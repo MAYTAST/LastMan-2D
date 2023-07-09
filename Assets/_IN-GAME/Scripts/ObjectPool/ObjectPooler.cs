@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,12 +39,12 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// <returns></returns>
     public bool PoolExsist(string key)
     {
-        return poolParents.ContainsKey(key);
+        return pooledObjects.ContainsKey(key);
     }
 
 
     /// <summary>
-    /// Should be called in start method of the script that is using it
+    /// Should be called in start or OnEnable method of the script that is using it
     /// </summary>
     /// <param name="prefab">prefab that need to be initialized</param>
     /// <param name="size">size of the pool(default size = 20)</param>
@@ -65,10 +66,12 @@ public class ObjectPooler : Singleton<ObjectPooler>
             if (parent == null)
             {
                  obj = Instantiate(prefab);
+                 obj.name = prefab.name;
             }
             else
             {
-                 obj = Instantiate(prefab, parent);
+                obj = Instantiate(prefab, parent);
+                obj.name = prefab.name;
             }
             obj.SetActive(false);
             pooledObjects[key].Add(obj);
@@ -103,10 +106,13 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// Disable the objects and set other parameters to default for fututre use.
     /// </summary>
     /// <param name="obj">game object to deactivate</param>
-    public void ReturnToPool(GameObject obj)
+    /// <param name="functionToCallAfterReturningToPool">Action function to call after the completion</param>
+    public void ReturnToPool(GameObject obj,Action functionToCallAfterReturningToPool = null)
     {
         obj.SetActive(false);
         obj.transform.SetParent(poolParents[obj.name]);
+
+        functionToCallAfterReturningToPool?.Invoke();
     }
 
 }

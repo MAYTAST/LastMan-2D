@@ -5,7 +5,7 @@ public class PlayerEntity : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
 
-    [Tooltip("Health at which this object should have in the start")]
+    [Tooltip("Health at which this object should have in the start (Don't assign value bigger than max health)")]
     [SerializeField] private float startHealth = 100f;
 
     private float currentHealth;
@@ -33,7 +33,8 @@ public class PlayerEntity : MonoBehaviour
 
     private void Awake()
     {
-        currentHealth = startHealth;
+        startHealth = Mathf.Clamp(startHealth, 0, maxHealth);
+        CurrentHealth = startHealth;
     }
 
 

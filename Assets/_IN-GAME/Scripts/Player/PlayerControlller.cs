@@ -10,8 +10,19 @@ public class PlayerControlller : MonoBehaviour
 
     private Vector2 movement;
 
+    private Vector2 lastLookDir;
+
     //Public properties 
-    public bool IsMoving => movement == Vector2.zero;
+    public bool IsMoving => movement != Vector2.zero;
+    
+    /// <summary>
+    /// The direction in which the player is looking (already normalized)
+    /// </summary>
+    public Vector2 LookDir
+    {
+        get;
+        private set;
+    }
 
 
  
@@ -25,7 +36,16 @@ public class PlayerControlller : MonoBehaviour
     {
         // Input
         movement = joystick.Direction.normalized;
-     
+        if (IsMoving)
+        {
+            LookDir = joystick.Direction;
+            lastLookDir = LookDir;
+        }
+        else
+        {
+            LookDir = lastLookDir;
+        }
+       
       
     }
 
@@ -57,5 +77,10 @@ public class PlayerControlller : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+       Debug.DrawRay(transform.position,LookDir * 3f,Color.black);
     }
 }

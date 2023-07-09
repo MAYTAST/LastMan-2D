@@ -34,7 +34,8 @@ public class EnemyEntity : MonoBehaviour
 
     private void Awake()
     {
-
+        startHealth = Mathf.Clamp(startHealth, 0, maxHealth);
+        CurrentHealth = startHealth;
     }
 
 
@@ -43,7 +44,7 @@ public class EnemyEntity : MonoBehaviour
     {
         CurrentHealth -= damageAmt;
         OnTakeDamage?.Invoke(currentHealth);
-        
+        Debug.Log("Current health of enemy is: " + CurrentHealth);
         if (shoulDie)
         {
             Die();

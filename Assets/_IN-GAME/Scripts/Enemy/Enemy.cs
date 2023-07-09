@@ -143,7 +143,7 @@ public class Enemy : MonoBehaviour
             damageTimer = 0.0f;
         }
 
-        Debug.Log(playerTransform.GetComponent<PlayerEntity>().CurrentHealth);
+       // Debug.Log(playerTransform.GetComponent<PlayerEntity>().CurrentHealth);
     }
     private void OnDrawGizmosSelected()
     {
