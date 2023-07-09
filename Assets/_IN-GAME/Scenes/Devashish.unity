@@ -24914,7 +24914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControlller: {fileID: 1474000574}
-  BombPrefab: {fileID: 0}
+  BombPrefab: {fileID: 2226780430793415386, guid: 0d215faae3f2afd499b29442e98c430b, type: 3}
   abilities:
   - AbilityType: 0
     Currentlevel: 0
@@ -24948,6 +24948,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5672161025282573993, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6569971001551952150, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_Name
       value: Canvas
