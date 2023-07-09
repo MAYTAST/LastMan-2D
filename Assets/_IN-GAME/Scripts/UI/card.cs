@@ -13,12 +13,23 @@ public class card : MonoBehaviour
     public TMP_Text title;
     public Image icon;
     public TMP_Text description;
+    public GameObject[] stars;
+    public int level;
 
-    public void SetCardInfo(int i)
+    public void SetCardInfo(int i, int level)
     {
+        this.level = level;
         title.text = titles[i];
         icon.sprite = icons[i];
         description.text = descriptions[i];
+        setStars();
     }
 
+    public void setStars()
+    {
+        for(int i =0; i < level; i++)
+        {
+            stars[i].SetActive(true);
+        }
+    }
 }
