@@ -10,6 +10,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform bulletParent;
+    [SerializeField] private Animator MuzzleFlash;
     private ObjectPooler bulletPooler;
 
 
@@ -170,6 +171,7 @@ public class PlayerShoot : MonoBehaviour
                 //Debug.Log("Before setting bullet component reference");
                 if (go.TryGetComponent(out PlayerBullet bullet))
                 {
+                    MuzzleFlash.SetTrigger("Shoot");
                     bullet.SetTarget(target);
                 }
                 //Debug.Log("Setting the bullet to true");
