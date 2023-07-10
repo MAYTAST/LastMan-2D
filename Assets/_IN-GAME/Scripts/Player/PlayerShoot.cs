@@ -12,7 +12,7 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] private Transform bulletParent;
     private ObjectPooler bulletPooler;
 
-    public GameObject Muzzleflash;
+
     [Header("Enemy detection")]
 
     [Tooltip("Maximum distance to detect enemies")]
@@ -67,10 +67,7 @@ public class PlayerShoot : MonoBehaviour
         {
             Shoot();
         }
-        if (Input.GetMouseButtonDown(1))
-        {
-           
-        }
+      
 
 
     }
@@ -167,22 +164,19 @@ public class PlayerShoot : MonoBehaviour
             GameObject go = bulletPooler.GetPooledObject(bulletPrefab);
             if (go != null)
             {
-               Debug.Log("Bullet is taken from the pool");
+               // Debug.Log("Bullet is taken from the pool");
                 go.transform.position = attackPoint.position;
                 go.transform.rotation = Quaternion.Euler(0f, 0f, Vector2.Angle(attackPoint.position, target.position));
                 //Debug.Log("Before setting bullet component reference");
                 if (go.TryGetComponent(out PlayerBullet bullet))
                 {
-                    Muzzleflash.GetComponent<Animator>().SetTrigger("Shoot");
                     bullet.SetTarget(target);
-                  
                 }
                 //Debug.Log("Setting the bullet to true");
                 go.SetActive(true);
-              
             }
         }
-     
+
         lastTimeFire = Time.time;
     }
 
