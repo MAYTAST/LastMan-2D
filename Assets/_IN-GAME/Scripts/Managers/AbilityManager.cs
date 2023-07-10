@@ -212,6 +212,7 @@ public class AbilityManager : MonoBehaviour
         for (int i = 1; i < AllChilds_BombAblity.Length; i++)//Starting from 1 because 0 index is parent
         {
             GameObject Bomb=Instantiate(BombPrefab,playerControlller.transform.position, Quaternion.identity, null);
+            
             Bomb.transform.DOMove(AllChilds_BombAblity[i].transform.position, 1f).OnComplete(() =>
             {
                 Bomb.GetComponent<Rotation>().enabled = false;
@@ -225,4 +226,7 @@ public class AbilityManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         StartCoroutine(nameof(SpawnBombs));
     }
+
+   
+
 }

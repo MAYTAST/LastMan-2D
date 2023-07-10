@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] float damageAmount = 10f;
+    [SerializeField,Tooltip(" damage to player amount ")] float PlayerdamageAmount = 10f;
+    [SerializeField, Tooltip(" SawBlade Damage ")] private float SawbladeDamageAmount;
+    [SerializeField, Tooltip(" ForceField Damage")] private float ForcefieldDamageAmount;
+    [SerializeField, Tooltip(" Bomb Damage")] private float BombDamgeAmount;
 
     public float circleRadius = 2f; // Adjust the radius of the overlapping circle
     public LayerMask playerLayer;
@@ -12,7 +16,7 @@ public class Enemy : MonoBehaviour
 
 
     private float damageTimer = 0.0f; // Timer to track the damage duration
-    private bool isDamaging = false;
+  private bool isDamaging = false;
     private float currentSpeed;
     private Transform playerTransform;
     private SpriteRenderer spriteRenderer;
@@ -24,12 +28,15 @@ public class Enemy : MonoBehaviour
     public static float EnemyDeathCount = 0;
 
     private ObjectPooler enemyPooler;
+
+
+
     private void Start()
     {
         currentSpeed = moveSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        
+
         enemyPooler = ObjectPooler.Instance;
     }
     private void Awake()
@@ -48,12 +55,60 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        MoveTowardsPlayer();
+        MoveTowardsPlayer(); // move
         Flip();
-        DetectPlayerAndAttack();
-        DoDamage();
+        DetectPlayerAndAttack();//detecting and attacking player 
+        DoDamage(); // to player
+        TakeDamage();//taking damage based on layer
+     //   Debug.Log(enemyEntity.CurrentHealth);
+
        
+
     }
+
+    // this takdeDamge is depeand upon the layer discribe the layer in if and Do Damage
+    private void TakeDamage()
+    {
+
+        Collider2D[] detectCol = Physics2D.OverlapCircleAll(transform.position, circleRadius);
+
+        if (detectCol.Length > 0)
+        {
+           
+            foreach (Collider2D collider in detectCol)
+            {
+                int collidedLayer = collider.gameObject.layer;
+                string layerName = LayerMask.LayerToName(collidedLayer);
+
+                if (layerName == "SawBloody")
+                {
+                    // Take damage or perform actions specific to the obstacle
+                   
+                    enemyEntity.TakeDamage(SawbladeDamageAmount);
+                   
+                }
+                else if (layerName == "ForceField")
+                {
+                    // Take damage or perform actions specific to the sawblade
+
+                    enemyEntity.TakeDamage(ForcefieldDamageAmount);
+
+                }
+                else
+                {
+                    //  Debug.Log("Collided with layer: " + layerName);
+
+                }
+
+               
+
+            }
+        }
+    }
+
+
+
+
 
     private void Flip()
     {
@@ -69,9 +124,9 @@ public class Enemy : MonoBehaviour
 
     private void DetectPlayerAndAttack()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, circleRadius, playerLayer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, circleRadius,playerLayer);
         bool isPlayerDetected = colliders.Length > 0;
-
+       
         if (isPlayerDetected && !isPlayerInRange)
         {
             // Player entered the attack range
@@ -80,10 +135,9 @@ public class Enemy : MonoBehaviour
            
             // Play attack animation
             animator.SetBool("CanAttack", true);
-          
 
-     
 
+      
           
         }
         else if (!isPlayerDetected && isPlayerInRange)
@@ -98,6 +152,8 @@ public class Enemy : MonoBehaviour
             damageTimer = 0.0f;
 
         }
+
+
     }
 
 
@@ -140,7 +196,7 @@ public class Enemy : MonoBehaviour
                 {
                     // Apply a fraction of the total damage over time
                     float damageFraction = Time.deltaTime / damageDuration;
-                    float damageAmountPerFrame = damageAmount * damageFraction;
+                    float damageAmountPerFrame = PlayerdamageAmount * damageFraction;
                     PlayerEnity.TakeDamage(damageAmountPerFrame);
                 }
             }
@@ -177,8 +233,10 @@ public class Enemy : MonoBehaviour
 
     private void OnEnemyDie()
     {
-        enemyPooler.ReturnToPool(gameObject);
         EnemyDeathCount++;
         Debug.Log(EnemyDeathCount);
-    }
+        enemyPooler.ReturnToPool(gameObject);
+    
+ 
+     }
 }

@@ -41,6 +41,13 @@ public class AnimController : MonoBehaviour
             PlayerAnim.SetBool("isMoving", true);
             PlayerAnim.SetFloat("VerticalMovement", movement.y);
         }
+
+      /*  Debug.Log(PlayerAnim.GetFloat("HorizontalMovement")+ " v " +PlayerAnim.GetFloat("VerticalMovement"));
+
+        if (movement.x >=-0.5f && movement.x <=-0.3 && movement.y >=-0.3f && movement.y <=0)
+        {
+            Debug.Log(movement.x);
+        }*/
     }
 
 }

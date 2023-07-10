@@ -210,6 +210,9 @@ MonoBehaviour:
   SpawnRangeMinY: -7
   SpawnRangeMaxY: 3
   waitTimeToVansish: 3
+  killPowerDuration: 0
+  collectPowerDuration: 0
+  col: {fileID: 0}
 --- !u!4 &193351361
 Transform:
   m_ObjectHideFlags: 0

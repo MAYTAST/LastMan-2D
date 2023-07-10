@@ -10,6 +10,7 @@ TagManager:
   - CollectAll
   - KillAll
   - Enemy
+  - SawBloody
   layers:
   - Default
   - TransparentFX
@@ -18,9 +19,9 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
-  - 
+  - SawBloody
+  - ForceField
+  - Bomb
   - 
   - 
   - 

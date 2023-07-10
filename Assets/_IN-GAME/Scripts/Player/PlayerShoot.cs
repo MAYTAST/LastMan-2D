@@ -158,7 +158,7 @@ public class PlayerShoot : MonoBehaviour
     private void Shoot()
     {
         //Shooting logic
-        Debug.Log("Shooting");
+       // Debug.Log("Shooting");
         if (bulletPrefab != null)
         {
             GameObject go = bulletPooler.GetPooledObject(bulletPrefab);

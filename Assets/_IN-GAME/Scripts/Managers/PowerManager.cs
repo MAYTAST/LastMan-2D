@@ -33,7 +33,7 @@ public class PowerManager : MonoBehaviour
 
     [SerializeField] private float killPowerDuration;
     [SerializeField] private float collectPowerDuration;
-
+    private ParticleSystem skullParticle;
 
     private GameObject playerObject;
     private Collector itemCollector;
@@ -44,6 +44,7 @@ public class PowerManager : MonoBehaviour
     private void Awake()
     {
         col = GetComponent<BoxCollider2D>();
+        skullParticle = GetComponentInChildren<ParticleSystem>();
         col.enabled = false;
     }
 
@@ -79,6 +80,7 @@ public class PowerManager : MonoBehaviour
         sequence.Append(spriteRenderer.DOFade(1f, 0.75f));
         sequence.Append(spriteRenderer.DOFade(0.5f, 1.5f).OnComplete(()=> {
             Destroy(spriteRenderer.gameObject);
+         
         }));
     }
     public void KillAllEnemies()

@@ -47,7 +47,10 @@ public class UIController : MonoBehaviour
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
     }
-
+    private void Update()
+    {
+        killsText.text = Enemy.EnemyDeathCount.ToString();
+    }
     public void StartGame()
     {
         CloseAllPanels();

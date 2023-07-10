@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9003006803928496270}
   - component: {fileID: 9003006803928496269}
   - component: {fileID: 1326527131}
+  - component: {fileID: 788547093}
   m_Layer: 6
   m_Name: BeardWalaEnemy
   m_TagString: Enemy
@@ -121,7 +122,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  damageAmount: 10
+  PlayerdamageAmount: 10
+  SawbladeDamageAmount: 5
+  ForcefieldDamageAmount: 10
+  BombDamgeAmount: 100
   circleRadius: 0.4
   playerLayer:
     serializedVersion: 2
@@ -168,3 +172,21 @@ MonoBehaviour:
   maxHealth: 100
   startHealth: 100
   floatingText: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
+--- !u!114 &788547093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9003006803928496258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 998a1fb0ee49fbf4aa1f35bda7202048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  separationRadius: 2
+  objectLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  separationForce: 5
+  separationDistance: 0.8
