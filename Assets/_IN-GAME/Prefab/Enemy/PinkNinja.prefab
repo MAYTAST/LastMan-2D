@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 6580779691044412589}
   - component: {fileID: 6580779691044412588}
   - component: {fileID: 412961758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PinkNinja
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

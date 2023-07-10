@@ -164,7 +164,7 @@ public class PlayerShoot : MonoBehaviour
             GameObject go = bulletPooler.GetPooledObject(bulletPrefab);
             if (go != null)
             {
-                Debug.Log("Bullet is taken from the pool");
+               // Debug.Log("Bullet is taken from the pool");
                 go.transform.position = attackPoint.position;
                 go.transform.rotation = Quaternion.Euler(0f, 0f, Vector2.Angle(attackPoint.position, target.position));
                 //Debug.Log("Before setting bullet component reference");
@@ -172,7 +172,7 @@ public class PlayerShoot : MonoBehaviour
                 {
                     bullet.SetTarget(target);
                 }
-                Debug.Log("Setting the bullet to true");
+                //Debug.Log("Setting the bullet to true");
                 go.SetActive(true);
             }
         }

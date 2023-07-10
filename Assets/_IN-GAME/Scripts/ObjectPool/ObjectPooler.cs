@@ -27,9 +27,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// <returns></returns>
     public bool PoolExsist(GameObject prefab)
     {
-        string key = prefab.name;
-
-        return pooledObjects.ContainsKey(key);
+        return pooledObjects.ContainsKey(prefab.name);
     }
 
     /// <summary>
@@ -40,6 +38,21 @@ public class ObjectPooler : Singleton<ObjectPooler>
     public bool PoolExsist(string key)
     {
         return pooledObjects.ContainsKey(key);
+    }
+
+    /// <summary>
+    /// Get the pool size of the given key(name of the prefab)
+    /// </summary>
+    /// <param name="key">name of the prefab</param>
+    /// <returns></returns>
+    public int GetPoolSize(string key)
+    {
+        return poolParents[key].childCount;
+    }
+
+    public int GetPoolSize(GameObject prefab)
+    {
+        return GetPoolSize(prefab.name);
     }
 
 
@@ -109,6 +122,8 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// <param name="functionToCallAfterReturningToPool">Action function to call after the completion</param>
     public void ReturnToPool(GameObject obj,Action functionToCallAfterReturningToPool = null)
     {
+        Debug.Log(obj.name + " returned to pool");
+
         obj.SetActive(false);
         obj.transform.SetParent(poolParents[obj.name]);
 

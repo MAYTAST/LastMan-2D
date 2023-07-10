@@ -1,4 +1,3 @@
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -23,17 +22,27 @@ public class Enemy : MonoBehaviour
     private PlayerEntity PlayerEnity;
     private EnemyEntity enemyEntity;
     public static float EnemyDeathCount = 0;
+
+    private ObjectPooler enemyPooler;
     private void Start()
     {
         currentSpeed = moveSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         
-        PlayerEnity = playerTransform.GetComponent<PlayerEntity>();
+        enemyPooler = ObjectPooler.Instance;
     }
     private void Awake()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        PlayerEnity = playerTransform.GetComponent<PlayerEntity>();
+
+        //inetrnal references
+        enemyEntity = transform.GetComponent<EnemyEntity>();
+        if (enemyEntity == null)
+        {
+            Debug.Log("Enemy enetity is null");
+        }
     }
 
 
@@ -46,11 +55,6 @@ public class Enemy : MonoBehaviour
        
     }
 
-    private void OnDisable()
-    {
-        EnemyDeathCount++;
-        Debug.Log(EnemyDeathCount);
-    }
     private void Flip()
     {
         if (direction.x < 0f)
@@ -157,21 +161,24 @@ public class Enemy : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, circleRadius);
     }
 
-    /*    private void OnEnable()
-      {
-          enemyEntity.OnDie += OnEnemyDie;
-      }
+    private void OnEnable()
+    {
+        EnemySpawner.EnemySpawned++;
+        enemyEntity.OnDie += OnEnemyDie;
+    }
 
-      private void OnDisable()
-      {
-          enemyEntity.OnDie -= OnEnemyDie;
-      }
-  */
+    private void OnDisable()
+    {
+        enemyEntity.OnDie -= OnEnemyDie;
+    }
 
 
-    /*  private void OnEnemyDie()
-      {
 
-          EnemyDeathCount++;
-      }*/
+    private void OnEnemyDie()
+    {
+        enemyPooler.ReturnToPool(gameObject);
+        EnemyDeathCount++;
+        EnemySpawner.EnemySpawned--;
+        Debug.Log(EnemyDeathCount);
+    }
 }

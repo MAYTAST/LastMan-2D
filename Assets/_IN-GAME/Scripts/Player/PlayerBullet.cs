@@ -50,15 +50,14 @@ public class PlayerBullet : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.transform.tag == "Enemy")
+        if (other.transform.tag == "Enemy")
         {
             //Taking the reference of enemy health component
             var healthComponent = other.transform.GetComponent<EnemyEntity>();
-            if(healthComponent != null)
+            if (healthComponent != null)
             {
-                Debug.Log("Damaging the player");
                 healthComponent.TakeDamage(damageAmout);
             }
 
@@ -69,9 +68,13 @@ public class PlayerBullet : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Deactivating the bullet");
+        //Debug.Log("Deactivating the bullet");
         target = null;
-        bulletPooler.ReturnToPool(this.gameObject, OnBulletReturnToPool);
+        if (gameObject.activeInHierarchy)
+        {
+            Debug.Log("Disabing them if they are enabled");
+            bulletPooler.ReturnToPool(this.gameObject, OnBulletReturnToPool);
+        }
     }
 
 }
