@@ -56,9 +56,10 @@ public class EnemySpawner : MonoBehaviour
                 {
                     totalCount += enemyPooler.GetPoolSize(enemyPrefab);
                 }
+                totalNumberOfEnemies = Mathf.Clamp(value, 0, totalCount);
             }
 
-            totalNumberOfEnemies = Mathf.Clamp(value,0,totalCount);
+            totalNumberOfEnemies = value;
         }
     
     }
@@ -104,7 +105,7 @@ public class EnemySpawner : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         //Setting up wave system.
-        totalNumberOfEnemies = enemyPerWaves[enemyPerWaves.Count -1];
+        TotalNumberOfEnemies = enemyPerWaves[enemyPerWaves.Count -1];
 
         numberOfEnemiesOfEachType = TotalNumberOfEnemies / 3;
 
@@ -119,9 +120,14 @@ public class EnemySpawner : MonoBehaviour
             enemyPooler.InitializePool(enemyPrefab,numberOfEnemiesOfEachType,enemyParent);
         }
 
+        foreach (GameObject gameObject in enemyPrefabs)
+        {
+            Debug.Log("Pool of game object" + gameObject.name + " exsist: " + enemyPooler.PoolExsist(gameObject));
+        }
+
         //setting up spawner 
         CurrentWave = 0;
-
+        Debug.Log("BEfroe starting coroutine");
         StartCoroutine(SpawnEnemies());
     }
 
@@ -132,9 +138,11 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        Debug.Log("Inside the spawn enemies and enemy shouldSpawn : " + ShouldSpawn());
+        Debug.Log("Enemy spawned: " + EnemySpawned + " and Total number of enemies: " + TotalNumberOfEnemies);
         while (ShouldSpawn())//Condition at which it should stop spawning like : if we are playing the level and the screen is not pasued.
         {
-            //Debug.Log("Spawning");
+            Debug.Log("Spawning");
             SpawnEnemy();
             float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
             Debug.Log("Next spawn will be in : " + spawnInterval + " sec");

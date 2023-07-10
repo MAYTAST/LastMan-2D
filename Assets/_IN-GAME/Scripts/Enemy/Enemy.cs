@@ -170,6 +170,7 @@ public class Enemy : MonoBehaviour
     private void OnDisable()
     {
         enemyEntity.OnDie -= OnEnemyDie;
+        EnemySpawner.EnemySpawned--;
     }
 
 
@@ -178,7 +179,6 @@ public class Enemy : MonoBehaviour
     {
         enemyPooler.ReturnToPool(gameObject);
         EnemyDeathCount++;
-        EnemySpawner.EnemySpawned--;
         Debug.Log(EnemyDeathCount);
     }
 }

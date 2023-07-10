@@ -89,6 +89,9 @@ public class ObjectPooler : Singleton<ObjectPooler>
             obj.SetActive(false);
             pooledObjects[key].Add(obj);
         }
+
+
+        Debug.Log("Parent of pool : " + poolParents[key].name);
     }
 
     /// <summary>

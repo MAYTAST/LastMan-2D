@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
     }
     private void Update()
     {
-        lookAngle = Vector2.Angle(Vector2.up, controller.LookDir);
+        lookAngle = Mathf.Atan2(controller.LookDir.y, controller.LookDir.x) * Mathf.Rad2Deg;
 
         DetectEnemies();
         if (ShouldShoot())

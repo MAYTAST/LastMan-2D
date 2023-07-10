@@ -12166,9 +12166,11 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 9003006803928496258, guid: 6a67a017296cd404999a55bff433799d, type: 3}
   - {fileID: 3352032617573628413, guid: dcede69477fbf7545b3d0a3056b7379a, type: 3}
+  - {fileID: 6944970131306333436, guid: 97fe3bee4a48c7749af1c1492ec4a566, type: 3}
   enemyParent: {fileID: 529134497}
   minSpawnInterval: 5
   maxSpawnInterval: 7.26
+  numberOfEnemyEachSpawn: 3
   minimumSpawnDistance: 5.04
   maximumSpawnDistance: 7.45
   enemyPerWaves: 0a00000014000000
@@ -24923,7 +24925,7 @@ MonoBehaviour:
     - {fileID: 1551861230}
     - {fileID: 1551861228}
   SpeedUpgradeValue: 0.5
-  cards: {fileID: 0}
+  cards: {fileID: 1155907515}
   cardList: []
   abilityCount: 0
 --- !u!4 &1109535744
@@ -24941,6 +24943,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1155907515 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1036006520889083653, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
+  m_PrefabInstance: {fileID: 811632547}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85caa144a811a3d4195bc1c04f6542ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1240663452
 GameObject:
   m_ObjectHideFlags: 0
