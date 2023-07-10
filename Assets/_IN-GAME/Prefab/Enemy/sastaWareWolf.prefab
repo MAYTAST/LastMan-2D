@@ -148,11 +148,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   damageAmount: 10
-  damageDuration: 1
   circleRadius: 0.4
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+  damageDuration: 1
 --- !u!114 &1768072236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +167,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   startHealth: 100
+  floatingText: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}

@@ -115,6 +115,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &708689696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708689697}
+  m_Layer: 3
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &708689697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708689696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1484835706025841427}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &866797424
 GameObject:
   m_ObjectHideFlags: 0
@@ -5429,6 +5460,7 @@ GameObject:
   - component: {fileID: 1484835706176904079}
   - component: {fileID: 1474000579}
   - component: {fileID: 2069615002}
+  - component: {fileID: 1801755725}
   m_Layer: 3
   m_Name: Astronaut
   m_TagString: Player
@@ -5451,6 +5483,7 @@ Transform:
   - {fileID: 1446759245}
   - {fileID: 1484835705574969435}
   - {fileID: 1877072274}
+  - {fileID: 708689697}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5616,6 +5649,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   startHealth: 100
+--- !u!114 &1801755725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484835706025841438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f40bb681138c2e4ca9c70b61bdd1ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRate: 2
+  attackPoint: {fileID: 708689697}
+  bulletPrefab: {fileID: 7586874801166206974, guid: 170be53c9577be944874dbb2e0c80d06, type: 3}
+  bulletParent: {fileID: 1484835706025841427}
+  detectRange: 6.2
+  detectAngle: 66
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &1674758445902776241
 GameObject:
   m_ObjectHideFlags: 0
