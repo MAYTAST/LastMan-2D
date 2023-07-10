@@ -29,7 +29,7 @@ public class card : MonoBehaviour
 
     public void setStars()
     {
-        for(int i =0; i <= level; i++)
+        for(int i =0; i < level; i++)
         {
             stars[i].SetActive(true);
         }

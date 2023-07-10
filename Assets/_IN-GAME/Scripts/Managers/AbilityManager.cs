@@ -51,7 +51,7 @@ public class AbilityManager : MonoBehaviour
         List<int> numbers = new List<int> { 0, 1, 2, 3};
         for(int i =0;i<abilities.Count;i++)
         {
-            if (abilities[i].Currentlevel >= 2)
+            if (abilities[i].Currentlevel >= 3)
             {
                 numbers.Remove(i);
             }
@@ -66,7 +66,7 @@ public class AbilityManager : MonoBehaviour
 
         for(int i=0;i< 3 && i<randomOrder.Count;i++)
         {
-            if (abilities[randomOrder[i]].Currentlevel < 2)
+            if (abilities[randomOrder[i]].Currentlevel < 3)
             {
                 GameObject newCard =  Instantiate(cards.gameObject, cards.transform.parent);
                 newCard.GetComponent<card>().SetCardInfo(randomOrder[i], abilities[randomOrder[i]].Currentlevel);
@@ -88,7 +88,7 @@ public class AbilityManager : MonoBehaviour
    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D) && abilityCount < 8)
+        if (Input.GetKeyDown(KeyCode.D) && abilityCount < 12)
         {
              UIController.instance.OpenAbilityPanel();
         }
