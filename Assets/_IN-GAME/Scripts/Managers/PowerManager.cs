@@ -31,9 +31,28 @@ public class PowerManager : MonoBehaviour
     public float waitTimeToVansish;
 
 
+    [SerializeField] private float killPowerDuration;
+    [SerializeField] private float collectPowerDuration;
+
+
+    private GameObject playerObject;
+    private Collector itemCollector;
+
+
+    [SerializeField] BoxCollider2D col;
+
+    private void Awake()
+    {
+        col = GetComponent<BoxCollider2D>();
+        col.enabled = false;
+    }
 
     private void Start()
     {
+
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        itemCollector = playerObject.GetComponent<Collector>();
+
         SpawnPower(_KillAll);
         SpawnPower(_CollectAll);
     }
@@ -64,10 +83,39 @@ public class PowerManager : MonoBehaviour
     }
     public void KillAllEnemies()
     {
-      
+        col.enabled = true;
+        Invoke(nameof(DisableCollider), killPowerDuration);
     }
     public void CollectAll()
     {
-        
+        col.enabled = true;
+        Invoke(nameof(DisableCollider), collectPowerDuration);
+    }
+
+
+    private void DisableCollider()
+    {
+        col.enabled = false;
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "Collectable":
+                var collectable = other.transform.GetComponent<Collectable>();
+                itemCollector.CollectItem(collectable);
+                break;
+
+
+            case "Enemy":
+                var enemyHealth = other.transform.GetComponent<EnemyEntity>();
+                enemyHealth.TakeDamage(enemyHealth.CurrentHealth);
+                break;
+
+
+            default:
+                break;
+        }
     }
 }

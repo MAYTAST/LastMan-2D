@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -25,7 +26,9 @@ public class PlayerControlller : MonoBehaviour
     }
 
 
- 
+    private int collectionScore = 0;
+    public static Action<int> OnCollect;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -54,29 +57,6 @@ public class PlayerControlller : MonoBehaviour
         // Movement
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        switch (collision.gameObject.tag)
-        {
-            case "KillAll":
-                if (PowerManager != null)
-                {
-                    Destroy(collision.gameObject);
-                    PowerManager.KillAllEnemies();
-                }
-                break;
-            case "CollectAll":
-                if (PowerManager != null)
-                {
-                    Destroy(collision.gameObject);
-                    PowerManager.CollectAll();
-                }
-                break;
-            default:
-                break;
-        }
     }
 
     private void OnDrawGizmos()
