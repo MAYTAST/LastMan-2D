@@ -244,7 +244,7 @@ public class Enemy : MonoBehaviour
         //Choosing which collectable to spawn
         int collectableIndex = Random.Range(0,collectableSpawner.MaxNumberOfPrefabs);
 
-        Debug.Log("Spawned by: " + transform.name);
+        //Debug.Log("Spawned by: " + transform.name);
         collectableSpawner.SpawnCollectable(collectableIndex,transform.position,Quaternion.identity);
         //Debug.Log(EnemyDeathCount);
         enemyPooler.ReturnToPool(gameObject);

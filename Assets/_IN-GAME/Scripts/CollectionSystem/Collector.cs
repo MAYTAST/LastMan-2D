@@ -10,6 +10,7 @@ public class Collector : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log("Invoking the on collect");
         currentScore = 0;
         OnCollect?.Invoke(currentScore);    
     }
