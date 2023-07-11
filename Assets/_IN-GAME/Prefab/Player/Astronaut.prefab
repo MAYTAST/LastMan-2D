@@ -5770,7 +5770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f40bb681138c2e4ca9c70b61bdd1ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRate: 1
+  attackRate: 0.5
   attackPoint: {fileID: 708689697}
   bulletPrefab: {fileID: 7586874801166206974, guid: 170be53c9577be944874dbb2e0c80d06, type: 3}
   bulletParent: {fileID: 1484835706025841427}
@@ -5780,6 +5780,7 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 64
+  ShootSound: {fileID: 860239687578973747, guid: e79b5bcdfa969924a81407f8e38764f2, type: 3}
 --- !u!114 &2908926769361753611
 MonoBehaviour:
   m_ObjectHideFlags: 0
