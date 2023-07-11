@@ -38,34 +38,24 @@ public class EnemyEntity : MonoBehaviour
         startHealth = Mathf.Clamp(startHealth, 0, maxHealth);
         CurrentHealth = startHealth;
     }
-    private IEnumerator ShowDelayedFloatingText(float damageAmount)
+    private void ShowFloatingText(float damageamount)
     {
-        // Create a new instance of the floating text object
+        //can use  object pooling 
         var go = Instantiate(floatingText, transform.position, Quaternion.identity, transform.parent);
+       
+        go.GetComponent<TextMesh>().text =damageamount.ToString();
 
-        // Set the text to the damage amount
-        go.GetComponent<TextMesh>().text = damageAmount.ToString();
 
-        // Wait for 1 second
-        yield return new WaitForSeconds(6f);
-
-        // Destroy the floating text object after the delay
-        Destroy(go);
-    }
-
-    private void ShowFloatingText(float damageAmount)
-    {
-        // Start the coroutine
-        StartCoroutine(ShowDelayedFloatingText(damageAmount));
     }
 
 
+ 
     public void TakeDamage(float damageAmt)
     {
         CurrentHealth -= damageAmt;
         OnTakeDamage?.Invoke(currentHealth);
-         ShowFloatingText(damageAmt);
-     
+         ShowFloatingText(1);
+       
         //Debug.Log("Current health of enemy is: " + CurrentHealth);
         if (shoulDie)
         {
@@ -75,7 +65,7 @@ public class EnemyEntity : MonoBehaviour
 
 
     }
-  
+    
     public void Heal(float healAmt)
     {
 

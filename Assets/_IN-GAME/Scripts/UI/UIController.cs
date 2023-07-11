@@ -33,6 +33,7 @@ public class UIController : Singleton<UIController>
     {
         CloseAllPanels();
         startPanel.SetActive(true);
+        Time.timeScale = 0;
     }
 
     void CloseAllPanels()
@@ -55,6 +56,7 @@ public class UIController : Singleton<UIController>
         gamePanel.SetActive(true);
         joyStickPanel.SetActive(true);
         StartCoroutine("UpdateTimer");
+        Time.timeScale = 1;
     }
 
     public void OpenAbilityPanel()

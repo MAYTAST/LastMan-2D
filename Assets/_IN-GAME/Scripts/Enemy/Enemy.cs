@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
 
     private CollectableSpawner collectableSpawner;
-
+    public float delay = 1f;
 
 
     private void Start()
@@ -97,8 +97,8 @@ public class Enemy : MonoBehaviour
                 {
                     // Take damage or perform actions specific to the sawblade
 
-                    enemyEntity.TakeDamage(ForcefieldDamageAmount);
 
+                    enemyEntity.TakeDamage(ForcefieldDamageAmount);
                 }
                 else
                 {
@@ -110,11 +110,16 @@ public class Enemy : MonoBehaviour
 
             }
         }
+/*
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1, targetLayer);
+
+        if (colliders.Length > 0)
+        {
+
+          
+        }*/
     }
-
-
-
-
+  
 
     private void Flip()
     {

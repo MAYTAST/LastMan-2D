@@ -534,10 +534,13 @@ MonoBehaviour:
   enemyParent: {fileID: 453442196}
   minSpawnInterval: 5
   maxSpawnInterval: 7.26
+  spawnIntervalDecrease: 2
   numberOfEnemyEachSpawn: 3
   minimumSpawnDistance: 5.04
   maximumSpawnDistance: 7.45
   enemyPerWaves: 0a00000014000000
+  waveEndTime: 0
+  enemySpawnNumberIncrease: 2
 --- !u!4 &453442196
 Transform:
   m_ObjectHideFlags: 0
