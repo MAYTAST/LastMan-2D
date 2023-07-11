@@ -58,7 +58,7 @@ public class PlayerBullet : MonoBehaviour
             var healthComponent = other.transform.GetComponent<EnemyEntity>();
             if (healthComponent != null)
             {
-                healthComponent.TakeDamage(damageAmout);
+                healthComponent.TakeDamage((int)damageAmout);
             }
 
 

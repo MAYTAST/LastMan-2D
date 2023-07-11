@@ -230,13 +230,13 @@ MonoBehaviour:
   playerControlller: {fileID: 1547104615}
   BombPrefab: {fileID: 2226780430793415386, guid: 0d215faae3f2afd499b29442e98c430b, type: 3}
   abilities:
-  - AbilityType: 0
+  - AbilityType: 2
     Currentlevel: 0
     LevelsGameObject:
     - {fileID: 1290423686}
     - {fileID: 1628152977}
     - {fileID: 1493717354}
-  - AbilityType: 3
+  - AbilityType: 0
     Currentlevel: 0
     LevelsGameObject:
     - {fileID: 1284732188}
@@ -245,7 +245,7 @@ MonoBehaviour:
   - AbilityType: 1
     Currentlevel: 0
     LevelsGameObject: []
-  - AbilityType: 2
+  - AbilityType: 3
     Currentlevel: 0
     LevelsGameObject:
     - {fileID: 365960135}

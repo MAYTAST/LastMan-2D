@@ -28,7 +28,7 @@ public class Bomb : MonoBehaviour
         {
             GameObject collidedObject = collider.gameObject;
           
-            collidedObject.gameObject.GetComponent<EnemyEntity>().TakeDamage(DamgeAmount);
+            collidedObject.gameObject.GetComponent<EnemyEntity>().TakeDamage((int)DamgeAmount);
             Debug.Log("Collision detected!");
         }
     }

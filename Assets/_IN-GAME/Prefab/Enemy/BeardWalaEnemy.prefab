@@ -124,13 +124,13 @@ MonoBehaviour:
   moveSpeed: 1
   PlayerdamageAmount: 10
   SawbladeDamageAmount: 5
-  ForcefieldDamageAmount: 10
+  ForcefieldDamageAmount: 0.5
   BombDamgeAmount: 100
   circleRadius: 0.4
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
-  damageDuration: 1
+  damageDuration: 10
 --- !u!61 &9003006803928496269
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0847a9e11b98b44994ebdc5693e4e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
-  startHealth: 20
+  maxHealth: 100
+  startHealth: 100
   floatingText: {fileID: 8506108839731573956, guid: af736468849a9eb438a32f9a710bbe9c, type: 3}
 --- !u!114 &788547093
 MonoBehaviour:

@@ -114,6 +114,8 @@ public class UIController : Singleton<UIController>
         TimeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         killsCount = 0;
         killsText.text = killsCount.ToString();
+        SceneManager.LoadScene(0);
+        
     }
 
     public void gameOver()

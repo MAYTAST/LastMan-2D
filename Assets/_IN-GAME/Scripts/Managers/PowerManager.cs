@@ -112,7 +112,7 @@ public class PowerManager : MonoBehaviour
 
             case "Enemy":
                 var enemyHealth = other.transform.GetComponent<EnemyEntity>();
-                enemyHealth.TakeDamage(enemyHealth.CurrentHealth);
+                enemyHealth.TakeDamage((int)enemyHealth.CurrentHealth);
                 break;
 
 

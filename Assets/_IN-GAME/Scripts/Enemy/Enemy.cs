@@ -4,14 +4,14 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField,Tooltip(" damage to player amount ")] float PlayerdamageAmount = 10f;
+    [SerializeField,Tooltip(" damage to player amount ")] float PlayerdamageAmount = 10;
     [SerializeField, Tooltip(" SawBlade Damage ")] private float SawbladeDamageAmount;
     [SerializeField, Tooltip(" ForceField Damage")] private float ForcefieldDamageAmount;
-    [SerializeField, Tooltip(" Bomb Damage")] private float BombDamgeAmount;
+    [SerializeField, Tooltip(" Bomb Damage")] private int BombDamgeAmount;
 
     public float circleRadius = 2f; // Adjust the radius of the overlapping circle
     public LayerMask playerLayer;
-    public float damageDuration = 1.0f; // The duration over which the damage is applied
+    public float damageDuration=1 ; // The duration over which the damage is applied
 
 
 
