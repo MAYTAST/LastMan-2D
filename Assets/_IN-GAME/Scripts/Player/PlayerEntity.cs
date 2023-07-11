@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerEntity : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 100f;
@@ -9,7 +9,7 @@ public class PlayerEntity : MonoBehaviour
     [SerializeField] private float startHealth = 100f;
 
     private float currentHealth;
-
+    public Image healthFill;
 
     public float CurrentHealth
     {
@@ -43,7 +43,8 @@ public class PlayerEntity : MonoBehaviour
     {
         CurrentHealth -= damageAmt;
         OnTakeDamage?.Invoke(currentHealth);
-        
+        float fillAmount = currentHealth / maxHealth;
+        healthFill.fillAmount = fillAmount;
         if (shoulDie)
         {
             Die();
