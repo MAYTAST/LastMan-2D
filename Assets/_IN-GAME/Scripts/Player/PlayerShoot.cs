@@ -27,7 +27,7 @@ public class PlayerShoot : MonoBehaviour
     private Transform target = null;
 
 
-
+    [SerializeField] GameObject ShootSound;
     private float lastTimeFire = 0f;
     private PlayerControlller controller;
 
@@ -176,7 +176,8 @@ public class PlayerShoot : MonoBehaviour
                     bullet.SetTarget(target);
                 }
                 //Debug.Log("Setting the bullet to true");
-                SoundManager.instance.Play("bullet");
+               GameObject yes  = Instantiate(ShootSound, transform.position,Quaternion.identity);
+                Destroy(yes, 1f);
                 go.SetActive(true);
             }
         }
