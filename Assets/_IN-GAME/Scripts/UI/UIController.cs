@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIController : MonoBehaviour
+public class UIController : Singleton<UIController>
 {
-    public static UIController instance;
+   
 
     [Header("Panels")]
     [SerializeField] private GameObject startPanel;
@@ -27,10 +27,7 @@ public class UIController : MonoBehaviour
     private int minutes = 0;
     private int seconds = 0;
     private int killsCount = 0;
-    private void Awake()
-    {
-        instance = this;
-    }
+   
 
     private void Start()
     {

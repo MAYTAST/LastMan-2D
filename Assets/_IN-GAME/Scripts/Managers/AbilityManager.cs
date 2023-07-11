@@ -83,7 +83,7 @@ public class AbilityManager : MonoBehaviour
         ActivateAbility((AbilityType)card.id);
         skills.instance.Setability(card.id);
         CardSpwaner();
-        UIController.instance.CloseAbilityPanel();
+        UIController.Instance.CloseAbilityPanel();
         abilityCount++;
     }
    
@@ -91,7 +91,7 @@ public class AbilityManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D) && abilityCount < 12)
         {
-             UIController.instance.OpenAbilityPanel();
+             UIController.Instance.OpenAbilityPanel();
         }
     
     }

@@ -67,7 +67,8 @@ public class PlayerEntity : MonoBehaviour
     private void Die()
     {
         //things that can be done before dying
-
+        UIController.Instance.gameOver();
+        gameObject.SetActive(false);
         OnDie?.Invoke();
     }
 
