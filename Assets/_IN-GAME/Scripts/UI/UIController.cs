@@ -53,6 +53,7 @@ public class UIController : MonoBehaviour
     }
     public void StartGame()
     {
+        SoundManager.instance.Play("ui");
         CloseAllPanels();
         gamePanel.SetActive(true);
         joyStickPanel.SetActive(true);
@@ -73,24 +74,28 @@ public class UIController : MonoBehaviour
 
     public void GameOver()
     {
+        SoundManager.instance.Play("gameover");
         CloseAllPanels();
         gameOverPanel.SetActive(true);
     }
 
     public void Pause()
     {
+        SoundManager.instance.Play("ui");
         pausePanel.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void resume()
     {
+        SoundManager.instance.Play("ui");
         Time.timeScale = 1;
         pausePanel.SetActive(false);
     }
 
     public void exit()
     {
+        SoundManager.instance.Play("ui");
         Application.Quit();
     }
 

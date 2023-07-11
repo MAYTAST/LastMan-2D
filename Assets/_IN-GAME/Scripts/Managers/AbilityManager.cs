@@ -78,6 +78,7 @@ public class AbilityManager : MonoBehaviour
 
     public void CardClicked(card card)
     {
+        SoundManager.instance.Play("ability select");
         Debug.Log((AbilityType)card.id);
         ActivateAbility((AbilityType)card.id);
         skills.instance.Setability(card.id);

@@ -158,6 +158,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot()
     {
+        SoundManager.instance.Play("bullet");
         //Shooting logic
        // Debug.Log("Shooting");
         if (bulletPrefab != null)
