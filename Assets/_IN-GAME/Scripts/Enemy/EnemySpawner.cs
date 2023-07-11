@@ -120,14 +120,10 @@ public class EnemySpawner : MonoBehaviour
             enemyPooler.InitializePool(enemyPrefab,numberOfEnemiesOfEachType,enemyParent);
         }
 
-        foreach (GameObject gameObject in enemyPrefabs)
-        {
-            Debug.Log("Pool of game object" + gameObject.name + " exsist: " + enemyPooler.PoolExsist(gameObject));
-        }
 
         //setting up spawner 
         CurrentWave = 0;
-        Debug.Log("BEfroe starting coroutine");
+        //Debug.Log("BEfroe starting coroutine");
         StartCoroutine(SpawnEnemies());
     }
 
@@ -138,14 +134,10 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        Debug.Log("Inside the spawn enemies and enemy shouldSpawn : " + ShouldSpawn());
-        Debug.Log("Enemy spawned: " + EnemySpawned + " and Total number of enemies: " + TotalNumberOfEnemies);
         while (ShouldSpawn())//Condition at which it should stop spawning like : if we are playing the level and the screen is not pasued.
         {
-            Debug.Log("Spawning");
             SpawnEnemy();
             float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            Debug.Log("Next spawn will be in : " + spawnInterval + " sec");
             yield return new WaitForSeconds(spawnInterval);
         }
     }
@@ -165,7 +157,6 @@ public class EnemySpawner : MonoBehaviour
             /*Instantiate(enemyPrefab, currentSpawnPos, spawnRotation,enemyParent);*/
 
             int indexOfEnemyToSpawn = Random.Range(0, enemyPrefabs.Count - 1);
-            Debug.Log("Enemy spawned: " + enemyPrefabs[indexOfEnemyToSpawn].name);
             GameObject enemyGO = enemyPooler.GetPooledObject(enemyPrefabs[indexOfEnemyToSpawn]);
             if (enemyGO != null)
             {

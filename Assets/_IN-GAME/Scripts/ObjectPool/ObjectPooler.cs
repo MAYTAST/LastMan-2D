@@ -91,7 +91,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
         }
 
 
-        Debug.Log("Parent of pool : " + poolParents[key].name);
+        //Debug.Log("Parent of pool : " + poolParents[key].name);
     }
 
     /// <summary>
@@ -125,7 +125,7 @@ public class ObjectPooler : Singleton<ObjectPooler>
     /// <param name="functionToCallAfterReturningToPool">Action function to call after the completion</param>
     public void ReturnToPool(GameObject obj,Action functionToCallAfterReturningToPool = null)
     {
-        Debug.Log(obj.name + " returned to pool");
+        //Debug.Log(obj.name + " returned to pool");
 
         obj.SetActive(false);
         obj.transform.SetParent(poolParents[obj.name]);

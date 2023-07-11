@@ -37,6 +37,7 @@ public class CameraShake : MonoBehaviour
     {
         if (shakeTimer > 0f && !IsShaking)
         {
+            Debug.Log("Shaking");
             IsShaking = true;
             shakeTimer -= Time.deltaTime;
 

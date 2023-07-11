@@ -234,7 +234,7 @@ public class Enemy : MonoBehaviour
     private void OnEnemyDie()
     {
         EnemyDeathCount++;
-        Debug.Log(EnemyDeathCount);
+        //Debug.Log(EnemyDeathCount);
         enemyPooler.ReturnToPool(gameObject);
     
  
