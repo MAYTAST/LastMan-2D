@@ -46,10 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Background
-    clip: {fileID: 8300000, guid: 0df1ea2e5f5ddc640a7f3a6a798be093, type: 3}
+    clip: {fileID: 8300000, guid: aefc40f0426fcb6489aad50a93ffaf7d, type: 3}
     mixer: {fileID: 0}
     pitch: 1
-    volume: 0.063
+    volume: 0.353
     loop: 1
     source: {fileID: 0}
   - name: bullet
