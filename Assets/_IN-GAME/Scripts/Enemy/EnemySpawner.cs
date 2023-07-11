@@ -19,6 +19,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField,Range(0f,5f)] private float minSpawnInterval = 5f;
     [SerializeField,Range(0f,10f)] private float maxSpawnInterval = 10f;
 
+    [SerializeField] private float spawnIntervalDecrease = 2f;
+
     [Tooltip("Number of enemis spawning at a time")]
     [SerializeField] private int numberOfEnemyEachSpawn = 3;
 
@@ -30,9 +32,14 @@ public class EnemySpawner : MonoBehaviour
 
     [Tooltip("Number of enemies per wave and its size will also determine the total number of waves (Give the number in ascending order.)")]
     [SerializeField] private List<int> enemyPerWaves;
+
+    [SerializeField] private float waveEndTime;
+    [SerializeField] private int enemySpawnNumberIncrease = 2;
+
     private int totalNumberOfEnemies;
     private int currentWave;
     private int numberOfEnemiesOfEachType;
+    private float waveTimer;
 
     //Properties
 
@@ -42,7 +49,6 @@ public class EnemySpawner : MonoBehaviour
     /// For other script to know the number of enemies without refrencing it.
     /// </summary>
     public static int TotalEnemies { get; private set; }
-
 
     /// <summary>
     /// Total or max number of enemies that can be spawned or present in the scene. 
@@ -76,7 +82,12 @@ public class EnemySpawner : MonoBehaviour
     {
         get { return currentWave; }
         private set { 
-            currentWave = Mathf.Clamp(value,0,enemyPerWaves.Count - 1); 
+            currentWave = Mathf.Clamp(value,0,enemyPerWaves.Count - 1);
+
+            //Reducing other values
+            numberOfEnemyEachSpawn += enemySpawnNumberIncrease;
+            minSpawnInterval -= spawnIntervalDecrease;
+            maximumSpawnDistance -= spawnIntervalDecrease;
         }
     }
 
@@ -141,8 +152,15 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
+        waveTimer += Time.deltaTime;
+        if(waveTimer >= waveEndTime)
+        {
+            Debug.Log("Wave number increase");
+            CurrentWave++;
+        }
         while (ShouldSpawn())//Condition at which it should stop spawning like : if we are playing the level and the screen is not pasued.
         {
+            Debug.Log("Spawning");
             SpawnEnemy();
             float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(spawnInterval);

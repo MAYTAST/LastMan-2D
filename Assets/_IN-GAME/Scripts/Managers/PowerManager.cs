@@ -86,11 +86,13 @@ public class PowerManager : MonoBehaviour
     public void KillAllEnemies()
     {
         col.enabled = true;
+        //Debug.Log("Killing all");
         Invoke(nameof(DisableCollider), killPowerDuration);
     }
     public void CollectAll()
     {
         col.enabled = true;
+        //Debug.Log("Collecting all");
         Invoke(nameof(DisableCollider), collectPowerDuration);
     }
 
@@ -102,15 +104,19 @@ public class PowerManager : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+
+        Debug.Log("Inside the collider");
         switch (other.tag)
         {
             case "Collectable":
                 var collectable = other.transform.GetComponent<Collectable>();
                 itemCollector.CollectItem(collectable);
+                //Destroy();
                 break;
 
 
             case "Enemy":
+                Debug.Log("Taking damage to the player");
                 var enemyHealth = other.transform.GetComponent<EnemyEntity>();
                 enemyHealth.TakeDamage((int)enemyHealth.CurrentHealth);
                 break;

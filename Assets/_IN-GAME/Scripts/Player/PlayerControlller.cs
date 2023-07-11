@@ -68,9 +68,13 @@ public class PlayerControlller : MonoBehaviour
         switch (other.tag)
         {
             case "KillAll":
+                Debug.Log("Kill all ability");
+                PowerManager.KillAllEnemies();
                 break;
 
             case "CollectAll":
+                Debug.Log("Collect all ability");
+                PowerManager.CollectAll();
                 break;
 
 
