@@ -158,7 +158,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Shoot()
     {
-        SoundManager.instance.Play("bullet");
+        
         //Shooting logic
        // Debug.Log("Shooting");
         if (bulletPrefab != null)
@@ -176,6 +176,7 @@ public class PlayerShoot : MonoBehaviour
                     bullet.SetTarget(target);
                 }
                 //Debug.Log("Setting the bullet to true");
+                SoundManager.instance.Play("bullet");
                 go.SetActive(true);
             }
         }

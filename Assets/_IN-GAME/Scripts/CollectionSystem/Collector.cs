@@ -16,7 +16,7 @@ public class Collector : MonoBehaviour
 
     public void CollectItem(Collectable itemToCollect)
     {
-
+        SoundManager.instance.Play("gem");
         currentScore += itemToCollect.CollectScore;
         OnCollect?.Invoke(itemToCollect.CollectScore);
         itemToCollect.Collect();

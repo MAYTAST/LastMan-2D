@@ -5567,6 +5567,7 @@ GameObject:
   - component: {fileID: 1474000579}
   - component: {fileID: 2069615002}
   - component: {fileID: 1801755725}
+  - component: {fileID: 2908926769361753611}
   m_Layer: 3
   m_Name: Astronaut
   m_TagString: Player
@@ -5779,6 +5780,18 @@ MonoBehaviour:
   detectLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2908926769361753611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1484835706025841438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65078df641cd54442af11ec3d219dc51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1674758445902776241
 GameObject:
   m_ObjectHideFlags: 0

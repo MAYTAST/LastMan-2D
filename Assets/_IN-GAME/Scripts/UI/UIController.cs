@@ -71,9 +71,10 @@ public class UIController : Singleton<UIController>
 
     public void GameOver()
     {
-        SoundManager.instance.Play("gameover");
+       
         CloseAllPanels();
         gameOverPanel.SetActive(true);
+     
     }
 
     public void Pause()
@@ -104,6 +105,7 @@ public class UIController : Singleton<UIController>
 
     public void restart()
     {
+        SoundManager.instance.Play("ui");
         CloseAllPanels();
         gamePanel.SetActive(true);
         joyStickPanel.SetActive(true);
@@ -116,6 +118,7 @@ public class UIController : Singleton<UIController>
 
     public void gameOver()
     {
+        SoundManager.instance.Play("gameover");
         CloseAllPanels();
         gameOverPanel.SetActive(true);
         KillCountScoreText.text = killsCount.ToString();
