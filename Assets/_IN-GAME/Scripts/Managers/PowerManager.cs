@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Sprites;
 using DG.Tweening;
 public enum Power
 {
- KillAll,
- CollectAll
+    KillAll,
+    CollectAll
 
 }
 [System.Serializable]
@@ -33,19 +31,26 @@ public class PowerManager : MonoBehaviour
 
     [SerializeField] private float killPowerDuration;
     [SerializeField] private float collectPowerDuration;
+
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private LayerMask collectableLayer;
+
+
+    [SerializeField] private float abilitySpawnTime;
     private ParticleSystem skullParticle;
 
     private GameObject playerObject;
     private Collector itemCollector;
 
 
-    [SerializeField] BoxCollider2D col;
+    [Header("Area detection")]
+    [SerializeField] private Transform bottomLeftPoint;
+    [SerializeField] private Transform topRightPoint;
+
 
     private void Awake()
     {
-        col = GetComponent<BoxCollider2D>();
         skullParticle = GetComponentInChildren<ParticleSystem>();
-        col.enabled = false;
     }
 
     private void Start()
@@ -54,76 +59,91 @@ public class PowerManager : MonoBehaviour
         playerObject = GameObject.FindGameObjectWithTag("Player");
         itemCollector = playerObject.GetComponent<Collector>();
 
-        SpawnPower(_KillAll);
-        SpawnPower(_CollectAll);
+        InvokeRepeating(nameof(SpawnPowerRandomly), abilitySpawnTime, abilitySpawnTime);
     }
     public void SpawnPower(PowerClass powerClass)
     {
-       GameObject ActivePower= Instantiate(powerClass._PowerPrefab, new Vector2(GetRandomInt(SpawnRangeMinX,SpawnRangeMaxX), 9), Quaternion.identity, null);
-        ActivePower.transform.DOMoveY(GetRandomInt(SpawnRangeMinY, SpawnRangeMaxY), 3f).OnComplete(()=> {
+        GameObject ActivePower = Instantiate(powerClass._PowerPrefab, new Vector2(GetRandomInt(SpawnRangeMinX, SpawnRangeMaxX), 9), Quaternion.identity, null);
+        ActivePower.transform.DOMoveY(GetRandomInt(SpawnRangeMinY, SpawnRangeMaxY), 3f).OnComplete(() =>
+        {
             ActivePower.GetComponent<SpriteRenderer>().sprite = powerClass._afterDrop;
             StartCoroutine(VanishPower(ActivePower.GetComponent<SpriteRenderer>()));
         });
     }
-    public int GetRandomInt(int Min,int Max)
+
+    private void SpawnPowerRandomly()
+    {
+        int powerIndex = Random.Range(0, 2);
+        switch (powerIndex)
+        {
+            case 0:
+                SpawnPower(_CollectAll);
+                break;
+            case 1:
+                SpawnPower(_KillAll);
+                break;
+            default:
+                break;
+        }
+    }
+    public int GetRandomInt(int Min, int Max)
     {
         return Random.Range(Min, Max);
     }
     IEnumerator VanishPower(SpriteRenderer spriteRenderer)
     {
-        
+
         yield return new WaitForSeconds(waitTimeToVansish);
         Sequence sequence = DOTween.Sequence();
         sequence.Append(spriteRenderer.DOFade(0.5f, 0.75f));
         sequence.Append(spriteRenderer.DOFade(1f, 0.75f));
         sequence.Append(spriteRenderer.DOFade(0.5f, 0.75f));
         sequence.Append(spriteRenderer.DOFade(1f, 0.75f));
-        sequence.Append(spriteRenderer.DOFade(0.5f, 1.5f).OnComplete(()=> {
+        sequence.Append(spriteRenderer.DOFade(0.5f, 1.5f).OnComplete(() =>
+        {
             Destroy(spriteRenderer.gameObject);
-         
+
         }));
     }
     public void KillAllEnemies()
     {
-        col.enabled = true;
+
         //Debug.Log("Killing all");
-        Invoke(nameof(DisableCollider), killPowerDuration);
+
+        Collider2D[] colliders = DetectObject(enemyLayer);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.TryGetComponent(out EnemyEntity enemyEntity))
+            {
+                enemyEntity.TakeDamage(enemyEntity.CurrentHealth);
+            }
+        }
+        Debug.Log("Killed all enemies");
+
     }
     public void CollectAll()
     {
-        col.enabled = true;
-        //Debug.Log("Collecting all");
-        Invoke(nameof(DisableCollider), collectPowerDuration);
-    }
-
-
-    private void DisableCollider()
-    {
-        col.enabled = false;
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-
-        Debug.Log("Inside the collider");
-        switch (other.tag)
+        Collider2D[] colliders = DetectObject(collectableLayer);
+        foreach (Collider2D collider in colliders)
         {
-            case "Collectable":
-                var collectable = other.transform.GetComponent<Collectable>();
-                itemCollector.CollectItem(collectable);
-                //Destroy();
-                break;
+            if (collider.TryGetComponent(out Collectable collectable))
+            {
+                collectable.transform.DOMove(playerObject.transform.position, .5f).SetEase(Ease.InElastic).OnComplete(() =>
+                {
+                    itemCollector.CollectItem(collectable);
+
+                });
 
 
-            case "Enemy":
-                Debug.Log("Taking damage to the player");
-                var enemyHealth = other.transform.GetComponent<EnemyEntity>();
-                enemyHealth.TakeDamage((int)enemyHealth.CurrentHealth);
-                break;
-
-
-            default:
-                break;
+            }
         }
     }
+
+     private Collider2D[] DetectObject(LayerMask layer)
+     {
+            Collider2D[] colliders = Physics2D.OverlapAreaAll(bottomLeftPoint.position, topRightPoint.position, layer);
+            return colliders;
+      }
+
+    
 }

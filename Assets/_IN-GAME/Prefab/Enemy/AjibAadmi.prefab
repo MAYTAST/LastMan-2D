@@ -157,6 +157,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damageDuration: 10
+  delay: 1
 --- !u!114 &1027745865
 MonoBehaviour:
   m_ObjectHideFlags: 0

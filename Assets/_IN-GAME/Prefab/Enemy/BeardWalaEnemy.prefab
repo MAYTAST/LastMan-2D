@@ -131,6 +131,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   damageDuration: 10
+  delay: 1
 --- !u!61 &9003006803928496269
 BoxCollider2D:
   m_ObjectHideFlags: 0

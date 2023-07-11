@@ -59,10 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041f476b793f643419518a5b401ac4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fillTime: 0.7
   FillImage: {fileID: 989225316}
   LevelText: {fileID: 7332072979478148295}
-  gemsCollected: 0
-  level: 0
+  maxXp: 100
+  percentIncrease: 10
+  startLevel: 0
 --- !u!1 &989225314
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +136,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3121,7 +3123,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1586462141
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6569971001551952152
@@ -4040,6 +4042,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &7698030243368537530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4143,7 +4157,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1a22058e66da9d94798ae36b3407bb53, type: 2}
   m_sharedMaterial: {fileID: -9075637141015213259, guid: 1a22058e66da9d94798ae36b3407bb53, type: 2}

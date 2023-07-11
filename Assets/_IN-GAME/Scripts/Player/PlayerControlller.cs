@@ -70,11 +70,13 @@ public class PlayerControlller : MonoBehaviour
             case "KillAll":
                 Debug.Log("Kill all ability");
                 PowerManager.KillAllEnemies();
+                Destroy(other.gameObject);
                 break;
 
             case "CollectAll":
                 Debug.Log("Collect all ability");
                 PowerManager.CollectAll();
+                Destroy(other.gameObject);
                 break;
 
 
