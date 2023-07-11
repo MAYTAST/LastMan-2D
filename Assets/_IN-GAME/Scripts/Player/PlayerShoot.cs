@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+
 using UnityEditor;
 using UnityEngine;
 
@@ -193,7 +193,7 @@ public class PlayerShoot : MonoBehaviour
         }    
     }
 
-    private void OnDrawGizmos()
+  /*  private void OnDrawGizmos()
     {
         if (target == null)
             Handles.color = Color.white;
@@ -209,8 +209,8 @@ public class PlayerShoot : MonoBehaviour
         
 
 
-        Vector3 viewAngle01 = DirectionFromAngle(/*transform.eulerAngles.z*/ lookAngle, -detectAngle / 2);
-        Vector3 viewAngle02 = DirectionFromAngle(/*transform.eulerAngles.z*/ lookAngle, detectAngle / 2);
+        Vector3 viewAngle01 = DirectionFromAngle(*//*transform.eulerAngles.z*//* lookAngle, -detectAngle / 2);
+        Vector3 viewAngle02 = DirectionFromAngle(*//*transform.eulerAngles.z*//* lookAngle, detectAngle / 2);
 
         Handles.color = Color.yellow;
         Handles.DrawLine(transform.position,transform.position + viewAngle01 * detectRange);
@@ -223,5 +223,5 @@ public class PlayerShoot : MonoBehaviour
         angleInDegrees += eulerZ;
 
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
-    }
+    }*/
 }
