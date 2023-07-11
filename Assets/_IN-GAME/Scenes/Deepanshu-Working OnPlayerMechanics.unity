@@ -12261,6 +12261,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &625767933 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1474000579, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+  m_PrefabInstance: {fileID: 1551861227}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &678826831
 GameObject:
   m_ObjectHideFlags: 0
@@ -25264,6 +25269,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 811632548}
+    - target: {fileID: 1141471883, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
+      propertyPath: boxCollider
+      value: 
+      objectReference: {fileID: 625767933}
     - target: {fileID: 1141471883, guid: 0256e7d909057d14f83a913ae7d1d99f, type: 3}
       propertyPath: PowerManager
       value: 

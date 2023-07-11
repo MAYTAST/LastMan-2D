@@ -160,7 +160,7 @@ public class EnemySpawner : MonoBehaviour
         }
         while (ShouldSpawn())//Condition at which it should stop spawning like : if we are playing the level and the screen is not pasued.
         {
-            Debug.Log("Spawning");
+            //Debug.Log("Spawning");
             SpawnEnemy();
             float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
             yield return new WaitForSeconds(spawnInterval);

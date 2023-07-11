@@ -7,6 +7,9 @@ public class PlayerControlller : MonoBehaviour
     public float moveSpeed = 5f; // Adjust the movement speed as needed
     [SerializeField] private DynamicJoystick joystick;
     [SerializeField] PowerManager PowerManager;
+    [SerializeField] private BoxCollider2D boxCollider;
+
+    [SerializeField] private float boxColliderEnablingTime = 1f;
     private Rigidbody2D rb;
 
     private Vector2 movement;
@@ -79,17 +82,13 @@ public class PlayerControlller : MonoBehaviour
                 Destroy(other.gameObject);
                 break;
 
-
-            case "Collectable":
-                if(other.TryGetComponent(out Collectable collectable))
-                {
-                    scoreCollector.CollectItem(collectable);
-                }
-
-                break;
-
             default:
                 break;
         }
+    }
+
+    private void EnableCollider()
+    {
+        boxCollider.enabled = true;
     }
 }

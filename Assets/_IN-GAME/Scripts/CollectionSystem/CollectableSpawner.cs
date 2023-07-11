@@ -22,9 +22,12 @@ public class CollectableSpawner : MonoBehaviour
         pooler = ObjectPooler.Instance;
 
         //Intialize the pool.
+        //Debug.Log("Total enemies are : " + EnemySpawner.TotalEnemies);
         for (int i = 0; i < collectables.Count; i++)
         {
-            pooler.InitializePool(collectables[i], EnemySpawner.TotalEnemies, collectableParent);
+            //Debug.Log("Pooled intailized");
+            pooler.InitializePool(collectables[i], 100, collectableParent);
+            //Debug.Log(pooler.PoolExsist(collectables[i]));
         }
         
     }

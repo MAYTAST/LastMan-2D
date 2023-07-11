@@ -79,7 +79,7 @@ public class AbilityManager : MonoBehaviour
     public void CardClicked(card card)
     {
         SoundManager.instance.Play("ability select");
-        Debug.Log((AbilityType)card.id);
+        //Debug.Log((AbilityType)card.id);
         ActivateAbility((AbilityType)card.id);
         skills.instance.Setability(card.id);
         CardSpwaner();
@@ -87,14 +87,14 @@ public class AbilityManager : MonoBehaviour
         abilityCount++;
     }
    
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.D) && abilityCount < 12)
         {
              UIController.Instance.OpenAbilityPanel();
         }
     
-    }
+    }*/
     public void ActivateAbility(AbilityType _abilityType)
     {
         AssingCurrentAblity(_abilityType);

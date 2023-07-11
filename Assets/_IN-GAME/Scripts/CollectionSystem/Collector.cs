@@ -18,9 +18,19 @@ public class Collector : MonoBehaviour
     public void CollectItem(Collectable itemToCollect)
     {
         SoundManager.instance.Play("gem");
-        currentScore += itemToCollect.CollectScore;
-        OnCollect?.Invoke(itemToCollect.CollectScore);
-        itemToCollect.Collect();
+
+        if (itemToCollect.CanBeCollected)
+        {
+            Debug.Log("Item can be collected");
+            currentScore += itemToCollect.CollectScore;
+            //Debug.Log("Before calling event : " + itemToCollect.name);
+            OnCollect?.Invoke(itemToCollect.CollectScore);
+            itemToCollect.Collect();
+        }
+        else
+        {
+            Debug.Log("Cant be collected");
+        }
     }
 
 }
