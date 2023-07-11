@@ -34,7 +34,8 @@ public class UIController : Singleton<UIController>
         CloseAllPanels();
         startPanel.SetActive(true);
         Time.timeScale = 0;
-        
+        Enemy.EnemyDeathCount = 0;
+    
     }
 
     void CloseAllPanels()
