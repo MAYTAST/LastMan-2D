@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
 
 
     private float damageTimer = 0.0f; // Timer to track the damage duration
-  private bool isDamaging = false;
+    private bool isDamaging = false;
     private float currentSpeed;
     private Transform playerTransform;
     private SpriteRenderer spriteRenderer;
@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     public static float EnemyDeathCount = 0;
 
     private ObjectPooler enemyPooler;
+
+
+    private CollectableSpawner collectableSpawner;
 
 
 
@@ -50,6 +53,9 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("Enemy enetity is null");
         }
+
+
+        collectableSpawner = FindObjectOfType<CollectableSpawner>();
     }
 
 
@@ -234,6 +240,12 @@ public class Enemy : MonoBehaviour
     private void OnEnemyDie()
     {
         EnemyDeathCount++;
+
+        //Choosing which collectable to spawn
+        int collectableIndex = Random.Range(0,collectableSpawner.MaxNumberOfPrefabs);
+
+        Debug.Log("Spawned by: " + transform.name);
+        collectableSpawner.SpawnCollectable(collectableIndex,transform.position,Quaternion.identity);
         //Debug.Log(EnemyDeathCount);
         enemyPooler.ReturnToPool(gameObject);
     

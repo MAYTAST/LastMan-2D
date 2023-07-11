@@ -72,7 +72,7 @@ public class PlayerBullet : MonoBehaviour
         target = null;
         if (gameObject.activeInHierarchy)
         {
-            Debug.Log("Disabing them if they are enabled");
+            //Debug.Log("Disabing them if they are enabled");
             bulletPooler.ReturnToPool(this.gameObject, OnBulletReturnToPool);
         }
     }

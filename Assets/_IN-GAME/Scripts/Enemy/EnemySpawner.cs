@@ -38,6 +38,11 @@ public class EnemySpawner : MonoBehaviour
 
     public static int EnemySpawned { get; set; } = 0;
 
+    /// <summary>
+    /// For other script to know the number of enemies without refrencing it.
+    /// </summary>
+    public static int TotalEnemies { get; private set; }
+
 
     /// <summary>
     /// Total or max number of enemies that can be spawned or present in the scene. 
@@ -106,6 +111,8 @@ public class EnemySpawner : MonoBehaviour
 
         //Setting up wave system.
         TotalNumberOfEnemies = enemyPerWaves[enemyPerWaves.Count -1];
+
+        TotalEnemies = TotalNumberOfEnemies;
 
         numberOfEnemiesOfEachType = TotalNumberOfEnemies / 3;
 

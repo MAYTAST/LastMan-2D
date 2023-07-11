@@ -4,6 +4,13 @@ public class Collectable : MonoBehaviour
 {
     [SerializeField] private int collectScore = 10;
 
+    private ObjectPooler pooler;
+
+
+    private void Start()
+    {
+        pooler = ObjectPooler.Instance;
+    }
     public int CollectScore
     {
         get { return collectScore; }
@@ -12,6 +19,6 @@ public class Collectable : MonoBehaviour
 
     public void Collect()
     {
-        Destroy(gameObject);
+        pooler.ReturnToPool(gameObject);
     }
 }

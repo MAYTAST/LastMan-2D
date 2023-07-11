@@ -25,13 +25,12 @@ public class PlayerControlller : MonoBehaviour
         private set;
     }
 
-
-    private int collectionScore = 0;
-    public static Action<int> OnCollect;
+    private Collector scoreCollector;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        scoreCollector = GetComponent<Collector>();
       
     }
 
@@ -62,5 +61,29 @@ public class PlayerControlller : MonoBehaviour
     private void OnDrawGizmos()
     {
        Debug.DrawRay(transform.position,LookDir * 3f,Color.black);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "KillAll":
+                break;
+
+            case "CollectAll":
+                break;
+
+
+            case "Collectable":
+                if(other.TryGetComponent(out Collectable collectable))
+                {
+                    scoreCollector.CollectItem(collectable);
+                }
+
+                break;
+
+            default:
+                break;
+        }
     }
 }

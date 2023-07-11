@@ -92,7 +92,7 @@ public class PlayerShoot : MonoBehaviour
             //Debug.Log("Target is not null");
             if (!IsObjectInsideRange(target))
             {
-                Debug.Log("Enemy is outside of the range");
+                //Debug.Log("Enemy is outside of the range");
                 target = null;
             }
         }
