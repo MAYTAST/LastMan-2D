@@ -12,6 +12,7 @@ TagManager:
   - Enemy
   - SawBloody
   - Collectable
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - ForceField
   - Bomb
   - Colleactable
-  - 
+  - IgnorePlayer
   - 
   - 
   - 

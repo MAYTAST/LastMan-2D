@@ -12542,30 +12542,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1055251151, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -272.89996
-      objectReference: {fileID: 0}
-    - target: {fileID: 358052007140383671, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -95.05353
-      objectReference: {fileID: 0}
-    - target: {fileID: 2873590904776891148, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -383.29498
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340250166171622946, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 61.629883
-      objectReference: {fileID: 0}
-    - target: {fileID: 4340250166171622946, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -177.60004
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672161025282573993, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6569971001551952150, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -12658,10 +12634,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2025924949}
-    - target: {fileID: 8260731880738320039, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 922bf8beb9db5cb4db8fdc228f3be046, type: 3}
 --- !u!114 &811632548 stripped

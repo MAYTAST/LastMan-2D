@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Collectable : MonoBehaviour
 {
-    [SerializeField] private int collectScore = 10;
+    [SerializeField] private float collectScore = 10;
 
     private ObjectPooler pooler;
 
@@ -11,7 +11,7 @@ public class Collectable : MonoBehaviour
     {
         pooler = ObjectPooler.Instance;
     }
-    public int CollectScore
+    public float CollectScore
     {
         get { return collectScore; }
         private set { collectScore = value; }
