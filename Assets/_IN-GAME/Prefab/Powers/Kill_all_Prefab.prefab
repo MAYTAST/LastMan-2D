@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 788553002477245256}
   - component: {fileID: 788553002477245263}
   - component: {fileID: 7250223979162251993}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Kill_all_Prefab
   m_TagString: KillAll
   m_Icon: {fileID: 0}
@@ -127,13 +127,25 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 294364003325551378, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 294364003325551391, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: playOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 758504873539901447, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3382749032140692839, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4046332599650371379, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5069506776915014960, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: m_Materials.Array.size
@@ -154,6 +166,14 @@ PrefabInstance:
     - target: {fileID: 6392491402937755025, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392491402937755027, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128788651337950566, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8194992990867289332, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: m_Materials.Array.size
@@ -210,6 +230,10 @@ PrefabInstance:
     - target: {fileID: 8194992990867289339, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
       propertyPath: m_Name
       value: CFXR3 Fire Explosion B
+      objectReference: {fileID: 0}
+    - target: {fileID: 8194992990867289339, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55996c001c8d1a7439ee257985148ee9, type: 3}

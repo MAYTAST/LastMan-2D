@@ -29,7 +29,7 @@ public class ExpBar : MonoBehaviour
     private void OnEnable()
     {
         Collector.OnCollect += OnGemsCollectedChanged;
-        Debug.Log("On enable event");
+        //Debug.Log("On enable event");
     }
 
     private void OnDisable()
@@ -61,10 +61,10 @@ public class ExpBar : MonoBehaviour
     public void OnGemsCollectedChanged(float newXp)
     {
         currentXp += newXp;
-        Debug.Log("Current xp : " + currentXp);
+       // Debug.Log("Current xp : " + currentXp);
 
         float clampedXp = currentXp / maxXp;
-        Debug.Log("Clamped xp is: " + clampedXp);
+        //Debug.Log("Clamped xp is: " + clampedXp);
 
         UpdateExpFill(clampedXp);
 

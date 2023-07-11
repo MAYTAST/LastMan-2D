@@ -38,20 +38,16 @@ public class CollectableSpawner : MonoBehaviour
     /// <param name="rot">Rotation of spawned object</param>
     public void SpawnCollectable(int index,Vector2 pos, Quaternion rot)
     {
-        Debug.Log("Spawned");
+        //Debug.Log("Spawned");
         if (index >= 0 && index <= collectables.Count - 1)
         {
-            Debug.Log("It can be spawned");
+            //Debug.Log("It can be spawned");
             GameObject collectableGO = pooler.GetPooledObject(collectables[index]);
             if(collectableGO != null)
             {
-                Debug.Log("Got it from the pool");
+                //Debug.Log("Got it from the pool");
                 collectableGO.transform.SetPositionAndRotation(pos, rot);
                 collectableGO.SetActive(true);
-            }
-            else
-            {
-                Debug.Log("Nahi mila object");
             }
         }
     }
