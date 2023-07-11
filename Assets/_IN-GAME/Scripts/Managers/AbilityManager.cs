@@ -158,6 +158,7 @@ public class AbilityManager : MonoBehaviour
                 BombAblityActivated(CurrentAblity.LevelsGameObject[i]);
                 break;
             case AbilityType.ForceField:
+                SoundManager.instance.Play("forcefield");
                 break;
             default:
                 break;
@@ -194,12 +195,15 @@ public class AbilityManager : MonoBehaviour
         {
             AllChilds_RotatingBlade[i].DOScale(0, 0f);
             AllChilds_RotatingBlade[i].DOScale(1.75f, 1.5f);
+
         }
+        SoundManager.instance.Play("spinner");
         yield return new WaitForSeconds(4f);
         for (int i = 1; i < AllChilds_RotatingBlade.Length; i++)
         {
             AllChilds_RotatingBlade[i].DOScale(0f, 1.5f).SetEase(Ease.OutBack);
         }
+      
         yield return new WaitForSeconds(4f);
         StartCoroutine(nameof(RotatingBlade));
     }
@@ -224,6 +228,7 @@ public class AbilityManager : MonoBehaviour
                 }
             });
         }
+        SoundManager.instance.Play("bomb");
         yield return new WaitForSeconds(3f);
         StartCoroutine(nameof(SpawnBombs));
     }

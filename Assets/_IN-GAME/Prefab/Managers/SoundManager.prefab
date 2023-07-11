@@ -49,7 +49,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: aefc40f0426fcb6489aad50a93ffaf7d, type: 3}
     mixer: {fileID: 0}
     pitch: 1
-    volume: 0.353
+    volume: 1
     loop: 1
     source: {fileID: 0}
   - name: bullet
@@ -70,7 +70,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 26d0d14cb56113844a03208053a1b92b, type: 3}
     mixer: {fileID: 0}
     pitch: 1
-    volume: 0.768
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: gem
@@ -96,6 +96,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: gameover
     clip: {fileID: 8300000, guid: f2fbee4d3e2e8564f8ee7de9f9bc9d1b, type: 3}
+    mixer: {fileID: 0}
+    pitch: 1
+    volume: 0.56
+    loop: 0
+    source: {fileID: 0}
+  - name: forcefield
+    clip: {fileID: 8300000, guid: 3c94864aa8d58e849acef9397440f73b, type: 3}
     mixer: {fileID: 0}
     pitch: 1
     volume: 0.56
