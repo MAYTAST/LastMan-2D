@@ -25,13 +25,13 @@ public class Enemy : MonoBehaviour
     private Vector3 direction;
     private PlayerEntity PlayerEnity;
     private EnemyEntity enemyEntity;
-    public static float EnemyDeathCount = 0;
+
 
     private ObjectPooler enemyPooler;
 
 
     private CollectableSpawner collectableSpawner;
-    public float delay = 1f;
+
 
 
     private void Start()
@@ -244,8 +244,8 @@ public class Enemy : MonoBehaviour
 
     private void OnEnemyDie()
     {
-        EnemyDeathCount++;
-
+        
+        UIController.Instance.Addkill();
         //Choosing which collectable to spawn
         int collectableIndex = Random.Range(0,collectableSpawner.MaxNumberOfPrefabs);
 

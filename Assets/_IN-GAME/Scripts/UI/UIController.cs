@@ -27,14 +27,14 @@ public class UIController : Singleton<UIController>
     private int minutes = 0;
     private int seconds = 0;
     private int killsCount = 0;
-   
+   [HideInInspector] public bool isGameStarted = false;
 
     private void Start()
     {
         CloseAllPanels();
         startPanel.SetActive(true);
         Time.timeScale = 0;
-        Enemy.EnemyDeathCount = 0;
+      //  Enemy.EnemyDeathCount = 0;
     
     }
 
@@ -47,10 +47,10 @@ public class UIController : Singleton<UIController>
         gameOverPanel.SetActive(false);
         pausePanel.SetActive(false);
     }
-    private void Update()
+  /*  private void Update()
     {
         killsText.text = Enemy.EnemyDeathCount.ToString();
-    }
+    }*/
     public void StartGame()
     {
         SoundManager.instance.Play("ui");
@@ -59,6 +59,7 @@ public class UIController : Singleton<UIController>
         joyStickPanel.SetActive(true);
         StartCoroutine("UpdateTimer");
         Time.timeScale = 1;
+        isGameStarted = true;
     }
 
     public void OpenAbilityPanel()

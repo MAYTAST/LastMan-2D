@@ -30,7 +30,8 @@ public class PlayerShoot : MonoBehaviour
     [SerializeField] GameObject ShootSound;
     private float lastTimeFire = 0f;
     private PlayerControlller controller;
-
+    bool canShoot =false;
+  
     float lookAngle;
 
     private void Awake()
@@ -64,7 +65,12 @@ public class PlayerShoot : MonoBehaviour
         lookAngle = Mathf.Atan2(controller.LookDir.y, controller.LookDir.x) * Mathf.Rad2Deg;
 
         DetectEnemies();
-        if (ShouldShoot())
+     
+        if (UIController.Instance.isGameStarted && Input.GetMouseButtonDown(0))
+        {
+            canShoot = true;
+        }
+        if (ShouldShoot() && canShoot )
         {
             Shoot();
         }
